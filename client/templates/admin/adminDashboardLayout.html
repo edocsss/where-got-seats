@@ -5,18 +5,18 @@
 	    <div id="sidebar-wrapper">
 	        <ul class="sidebar-nav">
 	            <li class="sidebar-brand">
-	                <a href="{{pathFor route='adminDashboardHome'}}">
+	                <a href="/dashboard">
 	                    Admin Panel
 	                </a>
 	            </li>
 	            <li>
-	                <a href="{{pathFor route='adminDashboardPlaces'}}" class="{{activeLink '/dashboard/places'}}">Places</a>
+	                <a href="/dashboard/places" class="{{activeLink '/dashboard/places'}}">Places</a>
 	            </li>
 	            <li>
-	                <a href="{{pathFor route='adminDashboardUsers'}}" class="{{activeLink '/dashboard/users'}}">Users</a>
+	                <a href="/dashboard/users" class="{{activeLink '/dashboard/users'}}">Users</a>
 	            </li>
 	            <li>
-	                <a href="{{pathFor route='adminDashboardAbout'}}" class="{{activeLink '/dashboard/about'}}">About Text</a>
+	                <a href="/dashboard/editAbout" class="{{activeLink '/dashboard/about'}}">About Text</a>
 	            </li>
 	        </ul>
 	    </div>
@@ -34,7 +34,7 @@
 					In the router, we only call the CHILD template like adminDashboardHome or adminDashboardPlaces as the template
 					By then, it will have been included to the adminDashboardLayout
             	-->
-                {{> yield}}
+                {{> Template.dynamic template=adminDashboardContentPlaceholder}}
             </div>
         </div>
         <!-- /#page-content-wrapper -->

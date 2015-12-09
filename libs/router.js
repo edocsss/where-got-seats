@@ -1,87 +1,77 @@
 var subsManager = new SubsManager();
 
-// Router.configure({
-// 	layoutTemplate: 'mainBody'
-// });
-
 FlowRouter.route('/', {
 	name: 'home',
 	action: function (params) {
-		console.log("TESTING ACTION!");
 		BlazeLayout.render('mainBody', {
 			main: 'placesList'
 		});
-	},
-
-	triggersEnter: function () {
-		console.log("TESTING ENTER!");
-	},
-
-	triggersExit: function () {
-		console.log("TESTING EXIT!");
 	}
 });
-
-// Router.route('home', {
-// 	path: '/',
-// 	template: 'placesList'
-// });
 
 FlowRouter.route('/about', {
 	name: 'aboutus',
 	action: function (params) {
-		console.log("TESTING ACTION ABOUT");
 		BlazeLayout.render('mainBody', {
 			main: 'aboutUs'
 		});
 	},
+});
 
-	triggersEnter: function () {
-		console.log('TESTING ENTER ABOUT');
-	},
-
-	triggersExit: function () {
-		console.log('TESTING EXIT ABOUT');
+FlowRouter.route('/contact', {
+	name: 'contactus',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'contactUs'
+		});
 	}
 });
 
-// Router.route('aboutus', {
-// 	path: '/about',
-// 	template: 'aboutUs'
-// });
+FlowRouter.route('/login', {
+	name: 'adminLogin',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'adminLogin'
+		});
+	}
+});
 
-// Router.route('contactus', {
-// 	path: '/contact',
-// 	template: 'contactUs'
-// });
+FlowRouter.route('/dashboard', {
+	name: 'adminDashboardHome',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'adminDashboardLayout',
+			adminDashboardContentPlaceholder: 'adminDashboardHome'
+		});
+	}
+});
 
-// Router.route('adminLogin', {
-// 	path: '/login',
-// 	template: 'adminLogin'
-// });
+FlowRouter.route('/dashboard/places', {
+	name: 'adminDashboardPlaces',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'adminDashboardLayout',
+			adminDashboardContentPlaceholder: 'adminDashboardPlaces'
+		});
+	}
+});
 
-// Router.route('adminDashboardHome', {
-// 	path: '/dashboard',
-// 	template: 'adminDashboardHome'
-// });
+FlowRouter.route('/dashboard/users', {
+	name: 'adminDashboardUsers',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'adminDashboardLayout',
+			adminDashboardContentPlaceholder: 'adminDashboardUsers'
+		});
+	}
+});
 
-// Router.route('adminDashboardPlaces', {
-// 	path: '/dashboard/places',
-// 	template: 'adminDashboardPlaces'
-// });
-
-// Router.route('adminDashboardUsers', {
-// 	path: '/dashboard/users',
-// 	waitOn: function () {
-// 		return [subsManager.subscribe('userList')];
-// 	},
-// 	action: function () {
-// 		this.render('adminDashboardUsers');
-// 		console.log('Rendering...');
-// 	}
-// });
-
-// Router.route('adminDashboardAbout', {
-// 	path: '/dashboard/about',
-// 	template: 'adminDashboardAbout'
-// });
+FlowRouter.route('/dashboard/edit-about', {
+	name: 'editAbout',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'adminDashboardLayout',
+			adminDashboardContentPlaceholder: 'adminDashboardAbout'
+		});
+	}
+});

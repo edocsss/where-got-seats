@@ -1,51 +1,49 @@
 <template name="adminDashboardUsers">
-	{{#Layout template="adminDashboardLayout"}}
-		<div class="row">
-			<div class="col-xs-12">
-				<h1 class="text-center dashboard-user-header">
-					<b>User List</b>
-				</h1>
-			</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="text-center dashboard-user-header">
+				<b>User List</b>
+			</h1>
 		</div>
+	</div>
 
-		<div class="row" id="add-user-row">
-			<div class="col-sm-offset-10 col-sm-2">
-				<button type="button" class="btn btn-primary" id="add-user-button" data-toggle="modal" data-target="#add-user-modal">
-					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-					<b>Add User</b>
-				</button>
-			</div>
+	<div class="row" id="add-user-row">
+		<div class="col-sm-offset-10 col-sm-2">
+			<button type="button" class="btn btn-primary" id="add-user-button" data-toggle="modal" data-target="#add-user-modal">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				<b>Add User</b>
+			</button>
 		</div>
+	</div>
 
-		<div class="row">	
-			<div class="table-responsive">
-				<table class="table table-hover" id="user-table">
-					<thead>
+	<div class="row">	
+		<div class="table-responsive">
+			<table class="table table-hover" id="user-table">
+				<thead>
+					<tr>
+						<th><b>Name</b></th>
+						<th><b>Email Address</b></th>
+						<th><b>Department</b></th>
+						<th><b>Job Title</b></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{{#unless isEmptyUserList}}
+						{{#each userList}}
+							{{> userListItem}}
+						{{/each}}
+					{{else}}
 						<tr>
-							<th><b>Name</b></th>
-							<th><b>Email Address</b></th>
-							<th><b>Department</b></th>
-							<th><b>Job Title</b></th>
+							<td colspan="4" class="text-center">
+								<i>There is no registered user in the database!</i>
+							</td>
 						</tr>
-					</thead>
-
-					<tbody>
-						{{#unless isEmptyUserList}}
-							{{#each userList}}
-								{{> userListItem}}
-							{{/each}}
-						{{else}}
-							<tr>
-								<td colspan="4" class="text-center">
-									<i>There is no registered user in the database!</i>
-								</td>
-							</tr>
-						{{/unless}}
-					</tbody>
-				</table>
-			</div>
+					{{/unless}}
+				</tbody>
+			</table>
 		</div>
-	{{/Layout}}
+	</div>
 
 	<!-- ADD USER MODAL -->
 	<div class="modal fade" id="add-user-modal">

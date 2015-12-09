@@ -1,20 +1,28 @@
+Template.navbar.onRendered(function () {
+	Tracker.autorun(function() {
+		FlowRouter.watchPathChange();
+		var currentPath = FlowRouter.current().path;
+		Session.set('currentPath', currentPath);
+	});
+});
+
 Template.navbar.helpers({
 	isUserAdmin: function () {
 		var userType = Meteor.user().profile.type;
 		return (userType === 'admin');
 	},
 	activeLink: function (r) {
-		// var currentRoute = Router.current().route.path(this);
+		var path = Session.get('currentPath');
 
-		// // Need to differentiate on how to compare the currentRoute with "r"
-		// // since the for r == '/', it cannot be compared using SUBSTRING
-		// if (r === '/' && currentRoute === r) {
-		// 	return "active";
-		// } else if (r !== '/' && currentRoute.indexOf(r) > -1) {
-		// 	return "active";
-		// } else {
-		// 	return "";
-		// }
+		// Need to differentiate on how to compare the currentRoute with "r"
+		// since the for r == '/', it cannot be compared using SUBSTRING
+		if (r === '/' && path === r) {
+			return "active";
+		} else if (r !== '/' && path.indexOf(r) > -1) {
+			return "active";
+		} else {
+			return "";
+		}
 	}
 });
 
@@ -25,7 +33,7 @@ Template.navbar.events({
 			if (error) {
 				console.log(error);
 			} else {
-				// Router.go('home');
+				FlowRouter.go('home');
 			}
 		});
 	}

@@ -15,12 +15,12 @@
 		    <div class="navbar-collapse collapse">
 		        <ul class="nav navbar-nav navbar-right">
 		        	{{#if currentUser}}
-		            	<li class="{{activeLink '/dashboard'}}"><a href="#}}">Dashboard</a></li>
+		            	<li class="{{activeLink '/dashboard'}}"><a href="/dashboard">Dashboard</a></li>
 		            {{/if}}
 
-	            	<li class="{{activeLink '/'}}"><a href="/about">Places</a></li>
-	            	<li class="{{activeLink '/about'}}"><a href="#">About</a></li>
-	            	<li class="{{activeLink '/contact'}}"><a href="#">Contact Us</a></li>
+	            	<li class="{{activeLink '/'}}"><a href="/">Places</a></li>
+	            	<li class="{{activeLink '/about'}}"><a href="/about">About</a></li>
+	            	<li class="{{activeLink '/contact'}}"><a href="/contact">Contact Us</a></li>
 
 	            	{{#if currentUser}}
 	            		<li><a href="#" class="logout-link">Sign Out</a></li>
