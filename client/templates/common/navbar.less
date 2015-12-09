@@ -1,0 +1,95 @@
+@import "../../css/color.less";
+
+.navbar-container {
+	padding-left: 3em;
+	padding-right: 3em;
+}
+
+.navbar {
+	background-color: @main-red;
+	color: #FFFFFF;
+	border: none;
+}
+
+.navbar-right {
+	margin-right: 0;
+}
+
+.navbar-default .navbar-brand, 
+.navbar-default .navbar-brand:hover, 
+.navbar-default .navbar-brand:focus {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: transparent;
+    color: #FFFFFF; /* If you change this, do not forget to look for "color:#EED000" in bootstrap.min.css and change with the same color as the hover color */
+    border-bottom: solid #FFFFFF 2px;
+    font-weight: bold;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-left: 11px;
+    margin-right: 11px;
+}
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+/* NAVBAR TOGGLE */
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #FFFFFF;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #FFFFFF;
+}
+
+/* MEDIA QUERIES */
+@media all and (max-width: 768px) {
+	.navbar-default .navbar-collapse, 
+	.navbar-default .navbar-form {
+		border: none;
+	}
+	
+	.navbar-default .navbar-nav > li > a {
+	    color: #FFFFFF;
+	    font-weight: normal;
+	}
+
+	.navbar-default .navbar-nav > .active > a,
+	.navbar-default .navbar-nav > .active > a:focus,
+	.navbar-default .navbar-nav > li > a:hover {
+	    background-color: transparent;
+	    color: #FFFFFF;
+	    border: none;
+	    font-weight: bold;
+	    padding-bottom: 10px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    margin-left: 0;
+	    margin-right: 0;
+	}
+}

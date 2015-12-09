@@ -1,0 +1,32 @@
+<!-- Author: Edwin Candinegara -->
+
+<template name="navbar">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid navbar-container">
+		    <div class="navbar-header">
+		        <a class="navbar-brand" href="/">Where Got Seats?</a>
+		        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		        </button>
+		    </div>
+		    <div class="navbar-collapse collapse">
+		        <ul class="nav navbar-nav navbar-right">
+		        	{{#if currentUser}}
+		            	<li class="{{activeLink '/dashboard'}}"><a href="#}}">Dashboard</a></li>
+		            {{/if}}
+
+	            	<li class="{{activeLink '/'}}"><a href="/about">Places</a></li>
+	            	<li class="{{activeLink '/about'}}"><a href="#">About</a></li>
+	            	<li class="{{activeLink '/contact'}}"><a href="#">Contact Us</a></li>
+
+	            	{{#if currentUser}}
+	            		<li><a href="#" class="logout-link">Sign Out</a></li>
+	            	{{/if}}
+		        </ul>
+		    </div>
+		</div>
+	</nav>
+</template>
