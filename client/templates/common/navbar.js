@@ -16,12 +16,14 @@ Template.navbar.helpers({
 
 		// Need to differentiate on how to compare the currentRoute with "r"
 		// since the for r == '/', it cannot be compared using SUBSTRING
-		if (r === '/' && path === r) {
-			return "active";
-		} else if (r !== '/' && path.indexOf(r) > -1) {
-			return "active";
-		} else {
-			return "";
+		if (path) {
+			if (r === '/' && path === r) {
+				return "active";
+			} else if (r !== '/' && path.indexOf(r) > -1) {
+				return "active";
+			} else {
+				return "";
+			}
 		}
 	}
 });

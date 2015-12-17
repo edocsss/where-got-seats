@@ -1,2 +1,63 @@
 <template name="contactUs">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="text-center main-header">
+				<b>Contact Us</b>
+			</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 contact-text-row">
+			<p class="text-justify">
+				We are here to answer any questions you may have about our "FYP" project!
+				Feel free to reach out to us and we will respond as soon as possible!
+			</p>
+
+			<p class="text-justify">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+			</p>
+		</div>
+
+		<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+			<form class="form-horizontal center-block" id="contact-us-form">
+				<div class="form-group has-feedback">
+					<div class="col-xs-offset-1 col-xs-10">
+						<input type="text" class="form-control" name="name" placeholder="Name" id="contact-us-name">
+						<i class="form-control-feedback fa fa-user"></i>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback">
+					<div class="col-xs-offset-1 col-xs-10">
+						<input type="email" class="form-control" name="email" placeholder="Email Address" id="contact-us-email">
+						<i class="form-control-feedback fa fa-envelope"></i>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback">
+					<div class="col-xs-offset-1 col-xs-10">
+						<input type="text" class="form-control" name="subject" placeholder="Subject" id="contact-us-subject">
+						<i class="form-control-feedback fa fa-question"></i>
+					</div>
+				</div>
+
+				<div class="form-group has-feedback">
+					<div class="col-xs-offset-1 col-xs-10">
+						<textarea class="form-control" rows="6" name="message" placeholder="Message.." id="contact-us-message"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group contact-button-rows">
+					<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-5">
+						<button type="submit" class="btn btn-primary" id="contact-send-button">Send</button>
+					</div>
+					
+					<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5">
+						<button type="reset" class="btn btn-default" id="contact-reset-button">Reset</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </template>

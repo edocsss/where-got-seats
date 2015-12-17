@@ -21,9 +21,13 @@ twbs:bootstrap
 accounts-password
 email
 less
-iron:layout
 accounts-base
 meteorhacks:subs-manager
 kadira:flow-router
 kadira:blaze-layout
 meteorhacks:fast-render
+cfs:standard-packages
+cfs:gridfs
+ejson
+check
+altapp:recaptcha
