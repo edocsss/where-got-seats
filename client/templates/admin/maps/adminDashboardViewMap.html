@@ -1,0 +1,94 @@
+<template name="adminDashboardViewMap">
+	{{ #if isSubscriptionReady 'mapData' }}
+
+		{{ #with getMapData }}
+
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="text-center main-header">
+						<b>{{ this.name }}</b>
+					</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- THE COL-XS-12 IS JUST TO MAKE SURE THAT THE FLEXBOX CONTAINER IS 100% WIDTH, BY DEFAULT IT IS ACTUALLY 100% -->
+				<div class="col-xs-12 flexbox-container vertical-center-flexbox">
+					<div>
+						<table class="map-details-table">
+							<tbody>
+								<tr>
+									<td>
+										<h4>
+											<b>No. of Seats</b>
+										</h4>
+									</td>
+
+									<td>
+										<h4 class="text-right"> {{ this.seats.length }} seat(s)</h4>
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<h4>
+											<b>No. of Available Seats</b>
+										</h4>
+									</td>
+
+									<td>
+										<h4 class="text-right"> {{ getNumberOfAvailableSeats }} seat(s)</h4>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="row view-map-buttons-row">
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-3 col-md-offset-3 col-md-3 col-lg-offset-4 col-lg-2">
+					<button type="button" class="btn btn-primary" id="edit-map-details-button">
+						<b>Edit</b>
+					</button>
+				</div>
+
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-3 col-md-offset-0 col-md-3 col-lg-offset-0 col-lg-2">
+					<button type="button" class="btn btn-danger" id="delete-map-button">
+						<b>Delete</b>
+					</button>
+				</div>
+			</div>
+
+			<div class="row view-map-back-button-row">
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+					<button type="button" class="btn btn-default" id="view-map-back-button">
+						<b>Back</b>
+					</button>
+				</div>
+			</div>
+
+			<hr class="map-details-section-divider" />
+			
+			<div class="row map-viewer-header-row">
+				<div class="col-xs-12">
+					<h1 class="text-center">
+						<b>Blueprint</b>
+					</h1>
+				</div>
+			</div>
+
+			<div class="row map-viewer-row">
+				<div class="col-xs-12" id="map-viewer">
+					<!-- THE MAP BLUEPRINT IMAGE WILL BE LOADED HERE USING LEAFLET.JS -->
+				</div>
+			</div>
+
+		{{ /with }}
+
+	{{ else }}
+
+		{{> loadingSubscription }}
+
+	{{ /if }}
+</template>

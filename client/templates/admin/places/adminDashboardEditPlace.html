@@ -1,0 +1,85 @@
+<template name="adminDashboardEditPlace">
+	{{ #if isSubscriptionReady 'editPlaceData' }}
+
+		<div class="row edit-place-title-row">
+			<div class="col-xs-12">
+				<h1 class="text-center"><b>Edit Place</b></h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+				
+				{{ #with getPlaceData }}
+
+					{{> adminDashboardEditPlaceForm }}
+
+				{{ /with }}
+
+			</div>
+		</div>
+
+	{{ else }}
+
+		{{> loadingSubscription}}
+
+	{{ /if }}
+</template>
+
+
+<template name="adminDashboardEditPlaceForm">
+	<form class="form-horizontal center-block" id="edit-place-form">
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="name" value="{{ this.name }}" placeholder="Name" id="edit-place-name">
+				<i class="form-control-feedback fa fa-building"></i>
+			</div>
+		</div>
+
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="address" value="{{ this.address }}" placeholder="Address" id="edit-place-address">
+				<i class="form-control-feedback fa fa-map"></i>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<textarea type="text" class="form-control" name="description" value="{{ this.description }}" rows="6" placeholder="Description" id="edit-place-description"></textarea>
+			</div>
+		</div>
+
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-3">
+				<label for="edit-place-picture" class="control-label">Picture</label>
+			</div>
+
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-5 col-lg-offset-0 col-lg-6">
+				<input type="file" class="form-control" name="picture" id="edit-place-picture">
+				<p class="help-block">
+					Please upload only JPG, JPEG or PNG image!
+					This will replace the current image!
+				</p>
+			</div>
+
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-4 col-lg-offset-0 col-lg-3">
+				<button type="button" class="btn btn-warning" id="edit-place-file-remove-button">
+					<b>Remove</b>
+				</button>
+			</div>
+		</div>
+
+		<div class="form-group edit-place-button-rows">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6">
+				<button type="submit" class="btn btn-primary" id="edit-place-save-button">
+					<b>Save</b>
+				</button>
+			</div>
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6">
+				<button type="button" class="btn btn-default" id="edit-place-back-button">
+					<b>Back</b>
+				</button>
+			</div>
+		</div>
+	</form>
+</template>

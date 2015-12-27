@@ -13,7 +13,12 @@ if (Meteor.isServer) {
 *	- Address
 *	- Description
 *	- Picture --> One picture of the building (for the main user interface --> places list) --> an Image URL
-*	- Map --> an array of object
+*	- Maps --> an array of object
+			{
+				name: the map's name
+				mapImageId: for joining with the MapsImages
+				seats: an array of seat objects
+			}
 **/
 Places = new Mongo.Collection('places');
 

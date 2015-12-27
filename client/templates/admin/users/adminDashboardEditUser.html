@@ -1,0 +1,80 @@
+<template name="adminDashboardEditUser">
+	{{ #if isSubscriptionReady 'userData' }}
+
+		<div class="row edit-user-title-row">
+			<div class="col-xs-12">
+				<h1 class="text-center"><b>Edit User</b></h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+
+				{{ #with getUserData }}
+				
+					{{> adminDashboardEditUserForm }}
+
+				{{ /with }}
+
+			</div>
+		</div>
+
+	{{ else }}
+
+		{{> loadingSubscription }}
+	
+	{{ /if }}
+</template>
+
+
+<template name="adminDashboardEditUserForm">
+	<form class="form-horizontal center-block" id="edit-user-form">
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="name" value="{{this.profile.name}}" placeholder="Name" id="edit-user-name">
+				<i class="form-control-feedback fa fa-user"></i>
+			</div>
+		</div>
+
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="department" value="{{this.profile.department}}" placeholder="Department" id="edit-user-department">
+				<i class="form-control-feedback fa fa-building"></i>
+			</div>
+		</div>
+
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="jobTitle" value="{{this.profile.jobTitle}}" placeholder="Job Title" id="edit-user-job-title">
+				<i class="form-control-feedback fa fa-briefcase"></i>
+			</div>
+		</div>
+
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="address" value="{{this.profile.address}}" placeholder="Address" id="edit-user-address">
+				<i class="form-control-feedback fa fa-home"></i>
+			</div>
+		</div>
+
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="contact" value="{{this.profile.contact}}" placeholder="Contact Number" id="edit-user-contact">
+				<i class="form-control-feedback fa fa-phone"></i>
+			</div>
+		</div>
+
+		<div class="form-group edit-user-button-rows">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6">
+				<button type="submit" class="btn btn-primary" id="edit-user-save-button">
+					<b>Save</b>
+				</button>
+			</div>
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6">
+				<button type="button" class="btn btn-default" id="edit-user-back-button">
+					<b>Back</b>
+				</button>
+			</div>
+		</div>
+	</form>
+</template>

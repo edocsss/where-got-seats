@@ -1,0 +1,73 @@
+<template name="adminDashboardLayout">
+	<div id="wrapper">
+		<!-- http://startbootstrap.com/template-overviews/simple-sidebar/ -->
+	    <!-- Sidebar -->
+	    <div id="sidebar-wrapper">
+	        <ul class="sidebar-nav">
+	            <!-- <li class="sidebar-brand">
+	                <a href="/dashboard">
+	                    <i class="fa fa-tachometer"></i>Admin Panel
+	                </a>
+	            </li> -->
+	            <li>
+	            	<a href="/dashboard" class="{{activeLink '/dashboard'}}">
+	            		<div class="fa-container">
+                			<i class="fa fa-line-chart"></i>
+                		</div>
+                		<div class="dashboard-text-container">
+                			Summary
+                		</div>
+	            	</a>
+	            </li>
+	            <li>
+	                <a href="/dashboard/places" class="{{activeLink '/dashboard/places'}}">
+	                	<div class="fa-container">
+                			<i class="fa fa-map-marker"></i>
+                		</div>
+                		<div class="dashboard-text-container">
+                			Places
+                		</div>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="/dashboard/users" class="{{activeLink '/dashboard/users'}}">
+	                	<div class="fa-container">
+                			<i class="fa fa-users"></i>
+                		</div>
+                		<div class="dashboard-text-container">
+                			Users
+                		</div>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="/dashboard/editAbout" class="{{activeLink '/dashboard/about'}}">
+	                	<div class="fa-container">
+                			<i class="fa fa-question"></i>
+                		</div>
+                		<div class="dashboard-text-container">
+                			About Us
+                		</div>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+	    <!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+            	<!-- HANDLING NESTED YIELDS ==> https://github.com/iron-meteor/iron-router/issues/1125 -->
+            	<!--
+					Use Iron Layout to do the nesting
+					This admin dashboard layout is only a template for another template to use (adminDashboardPlaces for example)
+					When the compilation starts, it will instantiate this layout and fill in the {{< yield}} part first
+
+					In the router, we only call the CHILD template like adminDashboardHome or adminDashboardPlaces as the template
+					By then, it will have been included to the adminDashboardLayout
+            	-->
+                {{> Template.dynamic template=adminDashboardContentPlaceholder}}
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+	</div>
+</template>

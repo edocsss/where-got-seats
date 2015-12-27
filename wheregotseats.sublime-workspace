@@ -1,0 +1,1053 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Maps",
+				"MapsImages	(publication.js)"
+			],
+			[
+				"adminDashboard",
+				"adminDashboardContentPlaceholder"
+			],
+			[
+				"availa",
+				"availableSeats"
+			],
+			[
+				"adminDasb",
+				"adminDashboardViewMap	(router.js)"
+			],
+			[
+				"mapImage",
+				"mapImageCursor"
+			],
+			[
+				"mapData",
+				"mapDataCursor"
+			],
+			[
+				"Plaes",
+				"PlacesImages	(methods.js)"
+			],
+			[
+				"editPlce",
+				"editPlaceData"
+			],
+			[
+				"margn",
+				"margin-bottom"
+			],
+			[
+				"addM",
+				"addMapValidator"
+			],
+			[
+				"adminDas",
+				"adminDashboardViewPlaceAddMapForm"
+			],
+			[
+				"admin",
+				"adminDashboardPlacesAddForm"
+			],
+			[
+				"edit",
+				"editPlaceValidator"
+			],
+			[
+				"eve",
+				"events	(adminDashboardEditUser.js)"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"Places",
+				"PlacesImages	(adminDashboardPlaces.js)"
+			],
+			[
+				"imageURL",
+				"imageURLSplitted"
+			],
+			[
+				"show",
+				"showCancelButton	(adminDashboardViewUser.js)"
+			],
+			[
+				"borderptl",
+				"border-top-style"
+			],
+			[
+				"fa-container-view-place",
+				"div.fa-container-view-place"
+			],
+			[
+				"row",
+				"div.row"
+			],
+			[
+				"adminDashboardView",
+				"adminDashboardViewPlace"
+			],
+			[
+				"add",
+				"address"
+			],
+			[
+				"typ",
+				"type"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"maps",
+				"mapsImageStore"
+			],
+			[
+				"Str",
+				"Store"
+			],
+			[
+				"co",
+				"contactus	(router.js)"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"ad",
+				"adminDashboardViewUser.html"
+			],
+			[
+				"job",
+				"jobTitle"
+			],
+			[
+				"work",
+				"workDetailsWidth"
+			],
+			[
+				"person",
+				"personalDetailsWidth"
+			],
+			[
+				"personal",
+				"personalDetails"
+			],
+			[
+				"padi",
+				"padding-left"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"adminDash",
+				"adminDashboardContentPlaceholder"
+			],
+			[
+				"subsc",
+				"subscriptions"
+			],
+			[
+				"subscrip",
+				"subscriptionName"
+			],
+			[
+				"current",
+				"currentPath	(navbar.js)"
+			],
+			[
+				"places",
+				"placesList"
+			],
+			[
+				"css",
+				"css?family=Lato:400,700"
+			],
+			[
+				"admi",
+				"adminDashboardUsers	(adminDashboardUsers.html)"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"adminDashb",
+				"adminDashboardPlaces	(adminDashboardPlaces.html)"
+			],
+			[
+				"remove",
+				"removeClass〔function〕"
+			],
+			[
+				"sub",
+				"subtitle"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"title",
+				"title_splitted"
+			],
+			[
+				"tit",
+				"title_splitted"
+			],
+			[
+				"full",
+				"full_title"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"image",
+				"imageWidth"
+			],
+			[
+				"window",
+				"windowWidth"
+			],
+			[
+				"banner",
+				"bannerHeight"
+			],
+			[
+				"navbar",
+				"navbarHeight"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"no",
+				"normal"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"bakgr",
+				"background-color"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"free",
+				"free_time"
+			],
+			[
+				"time",
+				"timetable"
+			],
+			[
+				"verti",
+				"vertical-align"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"curre",
+				"currentCondition"
+			],
+			[
+				"banana",
+				"bananaQuantity"
+			],
+			[
+				"orange",
+				"orangeQuantity"
+			],
+			[
+				"check",
+				"checkInputValidity"
+			],
+			[
+				"apple",
+				"appleQuantity"
+			],
+			[
+				"broad",
+				"broadcast"
+			],
+			[
+				"old",
+				"oldAgencyData"
+			],
+			[
+				"lat",
+				"latLng"
+			],
+			[
+				"send",
+				"sendCaseSummary"
+			],
+			[
+				"content",
+				"contentAgency"
+			],
+			[
+				"contentString",
+				"contentStringTop"
+			],
+			[
+				"cateog",
+				"categoryList"
+			],
+			[
+				"category",
+				"categoryList"
+			],
+			[
+				"con",
+				"convertToGMT8"
+			],
+			[
+				"editCase",
+				"editCaseValidator"
+			],
+			[
+				"cate",
+				"category"
+			],
+			[
+				"oran",
+				"orange_quantity"
+			],
+			[
+				"file",
+				"file_existence"
+			],
+			[
+				"print",
+				"print_r〔function〕"
+			],
+			[
+				"appl",
+				"apple_quantity"
+			],
+			[
+				"aple",
+				"apple_quantity"
+			],
+			[
+				"pa",
+				"payment_mode"
+			],
+			[
+				"total",
+				"total_price"
+			],
+			[
+				"apple_",
+				"apple_quantity"
+			],
+			[
+				"get",
+				"getAttribute"
+			],
+			[
+				"app",
+				"appleQuantity"
+			],
+			[
+				"for",
+				"for"
+			],
+			[
+				"post",
+				"postTweet"
+			],
+			[
+				"creatd",
+				"createdOn"
+			],
+			[
+				"contetn",
+				"contentFB"
+			],
+			[
+				"last",
+				"lastUpdatedOn"
+			],
+			[
+				"prev",
+				"prev_infowindow"
+			],
+			[
+				"filter",
+				"filterCategory"
+			],
+			[
+				"catego",
+				"categoryCheck"
+			],
+			[
+				"agency",
+				"agencyId"
+			],
+			[
+				"agec",
+				"agencyId"
+			],
+			[
+				"agenc",
+				"agencyId"
+			],
+			[
+				"created",
+				"createdOn"
+			],
+			[
+				"delete",
+				"deleteCallCenterOperator	(methods.js)"
+			],
+			[
+				"editOperat",
+				"editCallCenterOperator	(editCallCenterOperator.html)"
+			],
+			[
+				"enrollAcco",
+				"enrollAccountForm.css"
+			],
+			[
+				"email",
+				"emailTemplates"
+			],
+			[
+				"exi",
+				"existingUser"
+			],
+			[
+				"call",
+				"callCenterOperatorList"
+			],
+			[
+				"callCenter",
+				"callCenterOperatorItem"
+			],
+			[
+				"unsub",
+				"unsubscribeForm	(unsubscribeForm.html)"
+			],
+			[
+				"subscri",
+				"subscriberId"
+			],
+			[
+				"forgotPass",
+				"forgotPasswordEmail"
+			],
+			[
+				"access_toke",
+				"access_token_secret	(twitter.js)"
+			],
+			[
+				"confi",
+				"confirmPassword"
+			],
+			[
+				"resetP",
+				"resetPasswordValidator"
+			],
+			[
+				"conf",
+				"confirmPassword"
+			],
+			[
+				"reset",
+				"resetPasswordForm"
+			],
+			[
+				"forgot",
+				"forgotPasswordValidator"
+			],
+			[
+				"subm",
+				"submitHandler	(loginForm.js)"
+			],
+			[
+				"name",
+				"name=email	(loginForm.js)"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"padding-",
+				"padding-left"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 175.0,
+		"last_filter": "remove",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"project",
+				"Project Manager"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"proj",
+				"Project: Save As"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"color",
+				"Color Picker"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"",
+				":$ - EOF"
+			],
+			[
+				"bootstrap modal",
+				"Snippet: Bootstrap modal"
+			],
+			[
+				"boot",
+				"Snippet: Bootstrap default button"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"linter",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			],
+			[
+				"browser",
+				"File: Open In Browser - Production Server"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import Math",
+			"package_control",
+			"package control",
+			"package",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/maps/adminDashboardEditMap.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/maps/adminDashboardEditMap.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/maps/adminDashboardEditMap.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/maps/adminDashboardViewMap.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/README.md",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/places/adminDashboardEditPlace.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/libs/collections.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/maps/adminDashboardViewMap.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/maps/adminDashboardViewMap.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/places/adminDashboardViewPlace.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/places/adminDashboardPlaces.js",
+		"/C/Users/ECAND_000/AppData/Local/Temp/Temp1_leaflet.zip/leaflet.js",
+		"/C/Users/ECAND_000/AppData/Local/Temp/Temp1_leaflet.zip/leaflet-src.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/places/adminDashboardViewPlace.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/libs/router.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/server/publication.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/places/adminDashboardPlaces.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/css/global.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/server/methods.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/navbar.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/places/adminDashboardViewPlace.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardViewPlace.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardViewPlace.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardViewPlace.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardEditPlace.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardEditPlace.html",
+		"/C/xampp/htdocs/ICN2015/css/style-reveal.css",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardPlaces.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardPlaces.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardViewUser.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardUsers.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardUsers.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardEditUser.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardEditUser.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardEditPlace.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardPlaces.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardEditUser.less",
+		"/C/Users/ECAND_000/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/ECAND_000/AppData/Roaming/Sublime Text 3/Packages/Emmet/Default (Windows).sublime-keymap",
+		"/C/Users/ECAND_000/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
+		"/C/Users/ECAND_000/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/ECAND_000/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/ECAND_000/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardViewUser.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardViewUser.html",
+		"/C/Users/ECAND_000/Desktop/Hackathon/Hackathon/CSS/style.css",
+		"/C/Users/ECAND_000/Desktop/Hackathon/Hackathon/examples/subscribe.php",
+		"/C/Users/ECAND_000/Desktop/Hackathon/Hackathon/examples/publish.php",
+		"/C/Users/ECAND_000/Desktop/Hackathon/FoodChoices.php",
+		"/C/Users/ECAND_000/Desktop/Hackathon/Socket.php",
+		"/C/Users/ECAND_000/Desktop/Hackathon/examples/subscribe.php",
+		"/C/Users/ECAND_000/Desktop/Hackathon/phpMQTT.php",
+		"/C/Users/ECAND_000/Desktop/Hackathon/examples/publish.php",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/server/case_manager.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/server/bootstrap.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/.meteor/local/build/programs/web.browser/packages/themeteorchef_jquery-validation.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/contactUs.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminLogin.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/contactUs.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/contactUs.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardUsers.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/head.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/loadingSubscription.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/loadingSubscription.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardLayout.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardLayout.html",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/server/user_manager.js",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/client/templates/editAgency.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/css/color.less",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/client/templates/callCenterOperatorList.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/libs/global.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/navbar.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/main.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/placesList/placesList.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/loadingSubscription.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/loadingSubscription.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/loadingSubscription.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/libs/spin.js/spin.min.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardHome.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/admin/adminDashboardLayout.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/main.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/placesList/placesList.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/common/navbar.less",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/server/bootstrap.js",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/server/email_manager.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminLogin.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardUsers.less",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/client/templates/caseList.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminLogin.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/navbar.html",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/client/templates/navbar.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/navbar.js",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/client/templates/navbar.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/libs/font-awesome/css/font-awesome.min.css",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardLayout.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardHome.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardLayout.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardLayout.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardPlaces.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/main.html",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/client/templates/editAgency.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardSidebar.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardSidebar.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/main.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboardSidebar.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboard.js",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminDashboard.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/adminLogin.less",
+		"/C/xampp/htdocs/NTU_Planner/index.php",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/placesList.html",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/server/agency_manager.js",
+		"/D/edocsss/Programming/CZ3003/ID70_CMS/client/templates/loginForm.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/navbar.less",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/navbar.css",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/login.html",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/style.css",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/content-page.php",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/js/zerif.js",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/template-fullwidth.php",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/content-single.php",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/template-blog-large.php",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/functions.php",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/index.php",
+		"/C/xampp/htdocs/redcross/wp-content/themes/index.php",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/aboutUs.html",
+		"/D/edocsss/Programming/Where Got Seats/Web Apps/client/templates/contactUs.html",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/sections/our_focus.php",
+		"/C/xampp/htdocs/redcross/wp-content/themes/zerif-lite/front-page.php"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"left",
+			"Places",
+			"name",
+			"place",
+			"oldImageURL",
+			"this",
+			"adedit",
+			"user",
+			"PlacesImages",
+			"Places",
+			"new",
+			"get_theme_mod",
+			".content",
+			"content",
+			"            ",
+			"modal",
+			"login",
+			"user",
+			"inform",
+			"edit",
+			"NULL",
+			"placeMar",
+			"setpo",
+			"coordinate",
+			"contentString",
+			"oldCase.createdOn",
+			"convert",
+			"br>",
+			"console",
+			"setPosition",
+			"M",
+			"console.log",
+			"find",
+			"wifiComm",
+			"name",
+			"$name",
+			"new Date()",
+			"Meteor.method",
+			"					  \n",
+			"fire",
+			"Fire",
+			"fire",
+			"					\n",
+			" ;",
+			"xs",
+			"operator",
+			">\n",
+			"add",
+			"CAAGtMZBL5drQBAGlCJxzczjqmOJtdp8V635KoJPQKLBVNAVia3ttjYlJk3T5fJygxio7ExvhPDz3ZAHZCcm3F9ZASiHLhc7gIYYhUt61wJBYSrpjPWbVtblL6uPfu9filYRougbjLZAM5tmgZAjG59PHkhbS9pkAMMb4JIptVRzZCEeolqZA9k4M",
+			"home",
+			");\n",
+			"oldest",
+			"	        	}\n	        	}\n",
+			"\">>\n",
+			"video",
+			"sponsors",
+			"\n			",
+			"			\n",
+			"toggle",
+			"Mustika",
+			"Mustika-",
+			"touch",
+			"d F Y",
+			"d M Y",
+			"getTime",
+			"foundation",
+			"Unable",
+			"columns",
+			"margin",
+			"foundation",
+			"FOUND",
+			"foundation",
+			"sm",
+			"margin",
+			"fadeout",
+			"fadeut",
+			"hide()",
+			"Invalid",
+			"getticket",
+			"setFlash",
+			"early_bird",
+			"center",
+			"early",
+			"setFlash",
+			"navbar-brand",
+			"check",
+			"cake",
+			"content",
+			"content-data",
+			"show",
+			"setFlash",
+			".history-container > .row > div > h2.text-center",
+			"navbar",
+			"showError",
+			"');\n",
+			"synopsis-text",
+			"synopsis-tex.",
+			".",
+			"synopsis-tex",
+			"synopsis-text",
+			"synopsis",
+			"transform",
+			"Visibility",
+			"visibility",
+			"fade",
+			"opa",
+			"opacity",
+			"transform",
+			"fade",
+			"console.",
+			"history",
+			"1750",
+			"history",
+			"ICN2014",
+			"synopsis",
+			"sponsor-logo-slider",
+			"h2",
+			"h3",
+			"targetX",
+			"target",
+			"payment",
+			"reserveFpr,",
+			"pay-type",
+			"pay-alert",
+			"scrf",
+			"progress",
+			"disabled",
+			"video"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"sm",
+			"agency",
+			"WaveController",
+			"slideListener",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 26.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "wheregotseats.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\edocsss\\Programming\\Sublime Text Projects\\ID70\\id70.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 240.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

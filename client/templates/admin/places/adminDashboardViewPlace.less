@@ -1,0 +1,138 @@
+@import "../../../css/color.less";
+
+.place-image-container {
+	margin-top: 20px;
+}
+
+.place-image {
+	display: block;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	max-height: 200px;
+}
+
+.place-address {
+	line-height: 1.5;
+}
+
+.place-description {
+	font-size: 18px;
+}
+
+.view-place-buttons-row {
+	margin-top: 20px;
+}
+
+.view-place-buttons-row button {
+	width: 100%;
+}
+
+.place-details-section-divider {
+	width: 80%;
+	border-top: 1.5px solid #DDDDDD;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+/* ************* MAP SECTION *************** */
+
+#add-map-row {
+	margin-bottom: 30px;
+}
+
+.add-map-modal .modal-header {
+	border: none;
+}
+
+#add-map-modal-button {
+	width: 100%;
+}
+
+.map-list-item-container {
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+.map-list-item-container:hover {
+	cursor: pointer;
+}
+
+.map-name-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #FFFFFF;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1000000000;
+	opacity: 0;
+	padding-left: 10px; // This value must be the same as the one in .map-image-container
+	padding-right: 10px; // This value must be the same as the one in .map-image-container
+	background-clip: content-box; // This property makes the padding not included
+}
+
+.map-image-container {
+	position: relative;
+	width: 100%;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 10px; // This value must be the same as the one in .map-name-container
+	padding-right: 10px; // This value must be the same as the one in .map-name-container
+}
+
+.map-image {
+	max-width: 100%;
+	max-height: 150px;
+}
+
+/* ************* MEDIA QUERIES SECTION *************** */
+
+@media all and (min-width: 1441px) {
+	.place-image {
+		max-height: 300px;
+	}
+
+	.map-image-container {
+		height: 250px;
+	}
+
+	.map-image {
+		max-width: 100%;
+		max-height: 250px;
+	}
+}
+
+@media all and (min-width: 769px) and (max-width: 1440px) {
+	.place-image {
+		max-height: 250px;
+	}
+}
+
+@media all and (max-width: 768px) {
+	.place-image {
+		max-height: 100%;
+		max-width: 90%;
+	}
+
+	.edit-place-details-button {
+		margin-bottom: 10px;
+	}
+
+	.place-description {
+		font-size: 14px;
+	}
+	
+	.map-image-container {
+		height: 200px;
+	}
+
+	.map-image {
+		max-width: 100%;
+		max-height: 200px;
+	}
+}

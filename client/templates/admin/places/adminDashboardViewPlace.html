@@ -1,0 +1,178 @@
+<template name="adminDashboardViewPlace">
+	{{ #if isSubscriptionReady 'viewPlaceData' }}
+		
+		{{ #with getPlaceData }}
+
+			<div class="row">
+				<div class="place-image-container">
+					{{ #with getPlaceImage }}
+						<img src="{{ this.url storing='/img/util/loading.gif' }}" class="place-image">
+					{{ /with }}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="text-center">
+						<b>{{ this.name }}</b>
+					</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<h4 class="text-center place-address">
+						<b>{{ this.address }}</b>
+					</h4>
+				</div>
+
+				<div class="col-xs-offset-0 col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+					<p class="place-description">
+						{{ this.description }}
+					</p>
+				</div>
+			</div>
+
+			<div class="row view-place-buttons-row">
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-3 col-md-offset-3 col-md-3 col-lg-offset-4 col-lg-2">
+					<button type="button" class="btn btn-primary edit-place-details-button">
+						<b>Edit</b>
+					</button>
+				</div>
+
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-3 col-md-offset-0 col-md-3 col-lg-offset-0 col-lg-2">
+					<button type="button" class="btn btn-danger delete-place-button">
+						<b>Delete</b>
+					</button>
+				</div>
+			</div>
+
+			<hr class="place-details-section-divider" />
+
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="text-center">
+						<b>Maps</b>
+					</h1>
+				</div>
+			</div>
+
+			<div class="row" id="add-map-row">
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-9 col-sm-3">
+					<button type="button" class="btn btn-primary" id="add-map-modal-button" data-toggle="modal" data-target="#add-map-modal">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;
+						<b>Add Map</b>
+					</button>
+				</div>
+			</div>
+
+			{{ #unless isEmptyMapList }}
+
+				<div class="row">
+					{{ #each mapList }}
+						
+						{{> mapListItem }}
+
+					{{ /each }}
+				</div>
+
+			{{ else }}
+
+				<div class="row">
+					<h4 class="text-center">
+						<i>There is no registered map for this place!</i>
+					</h4>
+				</div>
+
+			{{ /unless }}
+
+		{{ /with }}
+
+	{{ else }}
+
+		{{> loadingSubscription }}
+
+	{{ /if }}
+
+	<!-- ADD MAP MODAL -->
+	{{> adminDashboardViewPlaceAddMapForm }}
+</template>
+
+
+<template name="adminDashboardViewPlaceAddMapForm">
+	<div class="modal fade" id="add-map-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title text-center">
+						<b>Add New Map</b>
+					</h2>
+				</div>
+
+				<div class="modal-body">
+					<div class="container-fluid">
+						<form class="form-horizontal center-block" id="add-map-form">
+							<div class="form-group has-feedback">
+								<div class="col-xs-offset-1 col-xs-10">
+									<input type="text" class="form-control" name="name" placeholder="Name" id="add-map-name">
+									<i class="form-control-feedback fa fa-map"></i>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback">
+								<div class="col-xs-offset-1 col-xs-2">
+									<label for="add-map-blueprint" class="control-label">Blueprint</label>
+								</div>
+
+								<div class="col-xs-8 col-sm-5">
+									<input type="file" class="form-control" name="blueprint" id="add-map-blueprint">
+									<p class="help-block">
+										Please ensure that the image size and ratio are consistent!
+									</p>
+								</div>
+
+								<div class="col-xs-offset-3 col-xs-8 col-sm-offset-0 col-sm-3">
+									<button type="button" class="btn btn-warning" id="add-map-file-remove-button">
+										<b>Remove</b>
+									</button>
+								</div>
+							</div>
+
+							<div class="form-group buttons-row">
+								<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-5">
+									<button type="submit" class="btn btn-primary center-block add-map-button">
+										<b>Add</b>
+									</button>
+								</div>
+
+								<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5">
+									<button type="button" class="btn btn-default center-block add-map-button" data-dismiss="modal">
+										<b>Cancel</b>
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="mapListItem">
+	<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-3 map-list-item-container">
+		<div class="map-name-container">
+			<h3>
+				<b>{{ this.name }}</b>
+			</h3>
+		</div>
+		<div class="map-image-container text-center">
+			{{ #with getMapImage }}
+
+				<img src="{{ this.url storing='/img/util/loading.gif' }}" class="map-image">
+
+			{{ /with }}
+		</div>
+	</div>
+</template>

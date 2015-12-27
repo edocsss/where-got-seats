@@ -112,10 +112,11 @@ Meteor.methods({
 			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
 		}
 
-		check([placeId, name, address, description, newImageId], [String]);
+		check([placeId, name, address, description], [String]);
+		check(newImageId, Match.OneOf(undefined, String));
 
 		// If newImageId exists --> need to remove old picture
-		if (newImageId.length > 0) {
+		if (newImageId !== undefined && newImageId.length > 0) {
 			var oldImageId =  Places.findOne({
 									_id: placeId
 								}).placeImageId;
@@ -135,7 +136,7 @@ Meteor.methods({
 					placeImageId: newImageId
 				}
 			});
-		} else if (newImageId.length === 0) {
+		} else if (newImageId === undefined) {
 			Places.update({
 				_id: placeId
 			}, {
@@ -194,6 +195,76 @@ Meteor.methods({
 			$push: {
 				'maps': map
 			}
+		});
+	},
+
+	// oldMapName is needed to get the Map object to be modified --> without this, we cannot select which object to $set
+	editMap: function (placeId, oldMapName, newMapName, newMapImageId) {
+		var currentUser = Meteor.user();
+		if (!currentUser || currentUser.profile.type !== 'admin') {
+			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
+		}
+
+		check([placeId, oldMapName, newMapName], [String]);
+		check(newMapImageId, Match.OneOf(undefined, String));
+
+		// Remove the old map image if newMapImageId exists
+		if (newMapImageId !== undefined && newMapImageId.length > 0) {
+			var oldMapImageId = Places.findOne({
+									'_id': placeId,
+									'maps.name': oldMapName
+								}).maps[0].mapImageId;
+
+			MapsImages.remove({
+				_id: oldMapImageId
+			});
+
+			// Update Places document
+			Places.update({
+				'_id': placeId,
+				'maps.name': oldMapName
+			}, {
+				$set: {
+					'maps.$.name': newMapName,
+					'maps.$.mapImageId': newMapImageId
+				}
+			});
+		} else if (newMapImageId === undefined) {
+			Places.update({
+				'_id': placeId,
+				'maps.name': oldMapName
+			}, {
+				$set: {
+					'maps.$.name': newMapName
+				}
+			});
+		}
+	},
+
+	deleteMap: function (placeId, mapName, mapImageId) {
+		var currentUser = Meteor.user();
+		if (!currentUser || currentUser.profile.type !== 'admin') {
+			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
+		}
+
+		// Arguments type checking
+		check([placeId, mapName, mapImageId], [String]);
+
+		// $pull is a modifier for taking out an array's item by specifying the field to be checked (the map's name in this case)
+		// http://stackoverflow.com/questions/9048424/removing-specific-items-from-array-with-mongodb
+		Places.update({
+			_id: placeId
+		}, {
+			$pull: {
+				'maps': {
+					'name': mapName
+				}
+			}
+		});
+
+		// Remove the corresponding map's blueprint image
+		MapsImages.remove({
+			_id: mapImageId
 		});
 	}
 });

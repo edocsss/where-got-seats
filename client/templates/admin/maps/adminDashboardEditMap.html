@@ -1,0 +1,74 @@
+<template name="adminDashboardEditMap">
+	{{ #if isSubscriptionReady 'editMapData' }}
+
+		<div class="row edit-map-title-row">
+			<div class="col-xs-12">
+				<h1 class="text-center">
+					<b>Edit Map</b>
+				</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+
+				{{ #with getMapData }}
+
+					{{> adminDashboardEditMapForm }}
+
+				{{ /with }}
+
+			</div>
+		</div>
+
+	{{ else }}
+
+		{{> loadingSubscription }}
+
+	{{ /if }}
+</template>
+
+
+<template name="adminDashboardEditMapForm">
+	<form class="form-horizontal center-block" id="edit-map-form">
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12">
+				<input type="text" class="form-control" name="name" value="{{ this.name }}" placeholder="Name" id="edit-map-name">
+				<i class="form-control-feedback fa fa-map"></i>
+			</div>
+		</div>
+
+		<div class="form-group has-feedback">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-3">
+				<label for="edit-map-blueprint" class="control-label">Blueprint</label>
+			</div>
+
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-5 col-lg-offset-0 col-lg-6">
+				<input type="file" class="form-control" name="blueprint" id="edit-map-blueprint">
+				<p class="help-block">
+					Please upload only JPG, JPEG or PNG image!
+					This will replace the current blueprint!
+				</p>
+			</div>
+
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-4 col-lg-offset-0 col-lg-3">
+				<button type="button" class="btn btn-warning" id="edit-map-file-remove-button">
+					<b>Remove</b>
+				</button>
+			</div>
+		</div>
+
+		<div class="form-group edit-map-button-rows">
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6">
+				<button type="submit" class="btn btn-primary" id="edit-map-save-button">
+					<b>Save</b>
+				</button>
+			</div>
+			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6">
+				<button type="button" class="btn btn-default" id="edit-map-back-button">
+					<b>Back</b>
+				</button>
+			</div>
+		</div>
+	</form>
+</template>

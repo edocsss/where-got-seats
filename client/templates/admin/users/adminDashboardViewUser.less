@@ -1,0 +1,88 @@
+.user-name-row {
+	margin-bottom: 15px;
+}
+
+.user-profile-details {
+	display: flex;
+	justify-content: center;
+}
+
+.user-profile-details .row {
+	margin-bottom: 15px;
+}
+
+.user-profile-details > div {
+	width: auto;
+	max-width: 50%;
+	float: left;
+}
+
+.user-profile-details > div:first-child {
+	margin-right: 8em;
+}
+
+.details-header {
+	width: auto;
+	padding-left: 0;
+	border-bottom: solid #F05052 2px;
+	float: left;
+}
+
+.details-item {
+	padding-left: 0;
+}
+
+.fa-container-view-user {
+	display: inline-block;
+	width: 35px;
+	text-align: center;
+}
+
+.text-container-view-user {
+	display: inline-block;
+}
+
+.fa-container-view-user .fa,
+.text-container-view-user {
+	font-size: 22px;
+}
+
+.details-item > span {
+	word-wrap: break-word;
+}
+
+.details-item .fa {
+	margin-left: 5px;
+	margin-right: 8px;
+}
+
+.edit-user-button,
+.delete-user-button {
+	width: 100%;
+}
+
+@media all and (max-width: 768px) {
+	.user-profile-details {
+		display: block;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+
+	.user-profile-details > div {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.user-profile-details > div:first-child {
+		margin-right: 0;
+	}
+
+	.fa-container-view-user .fa,
+	.text-container-view-user {
+		font-size: 20px;
+	}
+
+	.edit-user-button {
+		margin-bottom: 10px;
+	}
+}

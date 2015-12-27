@@ -16,7 +16,7 @@ Meteor.publish('userList', function () {
 				'profile.department': 1,
 				'profile.jobTitle': 1,
 				'profile.name': 1,
-				'profile.email': 1,
+				'profile.email': 1
 			}
 		});
 	}
@@ -69,7 +69,7 @@ Meteor.publish('viewPlaceData', function (placeId) {
 		var place = placeCursor.fetch()[0];
 		var placeImageCursor = PlacesImages.find({
 							_id: place.placeImageId
-						 }),
+						 }),	
 			mapIds = place.maps.map(function (map) {
 						return map.mapImageId;
 					 }),
@@ -105,11 +105,50 @@ Meteor.publish('mapImageData', function (mapImageId) {
 	}
 });
 
-Meteor.publish('mapData', function (mapName) {
+Meteor.publish('mapData', function (placeId, mapName) {
 	if (!this.userId) return this.ready();
 	else {
-		return Places.find({
-			'maps.name': mapName
+		var placeDataCursor = Places.find({
+								_id: placeId
+							}, {
+								fields: {
+									_id: 1,
+									maps: {
+										$elemMatch: {
+											name: mapName // This filters out which map data is shown to the user
+										}
+									}
+								}
+							});
+
+		var place = placeDataCursor.fetch()[0];
+		var mapImageId = place.maps[0].mapImageId;
+		var mapImageCursor = MapsImages.find({
+								_id: mapImageId
+ 							 });
+
+		return [placeDataCursor, mapImageCursor];
+	}
+});
+
+Meteor.publish('editMapData', function (placeId, mapName) {
+	if (!this.userId) return this.ready();
+	else {
+		var placeDataCursor = Places.find({
+			_id: placeId
+		}, {
+			fields: {
+				_id: 1,
+				maps: {
+					$elemMatch: {
+						name: mapName
+					}
+				},
+				// 'maps.name': 1,
+				// 'maps.mapImageId': 1
+			}
 		});
+
+		return [placeDataCursor];
 	}
 });

@@ -1,0 +1,143 @@
+<template name="adminDashboardPlaces">
+	{{ #if isSubscriptionReady 'placeList'}}
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="text-center main-header">
+					<b>Places List</b>
+				</h1>
+			</div>
+		</div>
+
+		<div class="row" id="add-place-row">
+			<div class="col-sm-offset-9 col-sm-3">
+				<button type="button" class="btn btn-primary" id="add-place-modal-button" data-toggle="modal" data-target="#add-place-modal">
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;
+					<b>Add Place</b>
+				</button>
+			</div>
+		</div>
+
+		<div class="row">	
+			<div class="table-responsive">
+				<table class="table table-hover" id="place-table">
+					<thead>
+						<tr>
+							<th><b>Name</b></th>
+							<th><b>Address</b></th>
+							<th><b>Description</b></th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						{{ #unless isEmptyPlaceList }}
+							{{ #each placeList }}
+
+								{{> placeListItem }}
+
+							{{ /each }}
+						{{ else }}
+							<tr>
+								<td colspan="3" class="text-center">
+									<i>There is no registered place in the database!</i>
+								</td>
+							</tr>
+						{{ /unless }}
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	{{ else }}
+
+		{{> loadingSubscription }}
+
+	{{ /if }}
+
+	<!-- ADD PLACE MODAL -->
+	{{> adminDashboardPlacesAddForm }}
+	
+</template>
+
+
+<template name="placeListItem">
+	<tr class="view-place">
+		<td>{{ this.name }}</td>
+		<td>{{ this.address }}</td>
+		<td>{{ this.description }}</td>
+	</tr>
+</template>
+
+
+<template name="adminDashboardPlacesAddForm">
+	<div class="modal fade" id="add-place-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title text-center">
+						<b>Add New Place</b>
+					</h2>
+				</div>
+
+				<div class="modal-body">
+					<div class="container-fluid">
+						<form class="form-horizontal center-block" id="add-place-form">
+							<div class="form-group has-feedback">
+								<div class="col-xs-offset-1 col-xs-10">
+									<input type="text" class="form-control" name="name" placeholder="Name" id="add-place-name">
+									<i class="form-control-feedback fa fa-building"></i>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback">
+								<div class="col-xs-offset-1 col-xs-10">
+									<input type="text" class="form-control" name="address" placeholder="Address" id="add-place-address">
+									<i class="form-control-feedback fa fa-map"></i>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback">
+								<div class="col-xs-offset-1 col-xs-10">
+									<textarea class="form-control" name="description" placeholder="Description" rows="4" id="add-place-description"></textarea>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback">
+								<div class="col-xs-offset-1 col-xs-2">
+									<label for="add-place-picture" class="control-label">Picture</label>
+								</div>
+
+								<div class="col-xs-8 col-sm-5">
+									<input type="file" class="form-control" name="picture" id="add-place-picture">
+									<p class="help-block">Please upload only JPG, JPEG or PNG image!</p>
+								</div>
+
+								<div class="col-xs-offset-3 col-xs-8 col-sm-offset-0 col-sm-3">
+									<button type="button" class="btn btn-warning" id="add-place-file-remove-button">
+										<b>Remove</b>
+									</button>
+								</div>
+							</div>
+
+							<div class="form-group buttons-row">
+								<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-5">
+									<button type="submit" class="btn btn-primary center-block add-place-button">
+										<b>Add</b>
+									</button>
+								</div>
+
+								<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5">
+									<button type="button" class="btn btn-default center-block add-place-button" data-dismiss="modal">
+										<b>Cancel</b>
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
