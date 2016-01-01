@@ -9,11 +9,14 @@ Template.adminDashboardEditMap.helpers({
 						_id: FlowRouter.getParam('placeId')
 					});
 
-		console.log(place, place === null);
-		var maps = place.maps;
-		var map = maps[0];
+		if (place) {
+			var maps = place.maps;
+			var map = maps[0];
 
-		return map;
+			return map;
+		}
+
+		return null;
 	}
 });
 
@@ -40,7 +43,7 @@ Template.adminDashboardEditMapForm.onRendered(function () {
 
 							return false;
 						} else {
-							Meteor.call('editMap', FlowRouter.getParam('placeId'), self.data.name, name, doc._id, function (error) {
+							Meteor.call('editMap', FlowRouter.getParam('placeId'), FlowRouter.getParam('mapId'), name, doc._id, function (error) {
 								if (error) {
 									swal({
 										title: "Edit Map",
@@ -73,7 +76,7 @@ Template.adminDashboardEditMapForm.onRendered(function () {
 										// Use go() instead of click() --> easier to alter the params
 										FlowRouter.go(FlowRouter.path('adminDashboardViewMap', {
 											placeId: FlowRouter.getParam('placeId'),
-											mapName: name
+											mapId: FlowRouter.getParam('mapId')
 										}));
 									});
 								}
@@ -84,7 +87,7 @@ Template.adminDashboardEditMapForm.onRendered(function () {
 
 				// Ignore image input
 				else {
-					Meteor.call('editMap', FlowRouter.getParam('placeId'), self.data.name, name, function (error) {
+					Meteor.call('editMap', FlowRouter.getParam('placeId'), FlowRouter.getParam('mapId'), name, function (error) {
 						if (error) {
 							swal({
 								title: "Edit Map",
@@ -117,7 +120,7 @@ Template.adminDashboardEditMapForm.onRendered(function () {
 								// Use go() instead of click() --> easier to alter the params
 								FlowRouter.go(FlowRouter.path('adminDashboardViewMap', {
 									placeId: FlowRouter.getParam('placeId'),
-									mapName: name
+									mapId: FlowRouter.getParam('mapId')
 								}));
 							});
 						}
@@ -173,7 +176,7 @@ Template.adminDashboardEditMap.events({
 	'click #edit-map-back-button': function () {
 		FlowRouter.go(FlowRouter.path('adminDashboardViewMap', {
 			placeId: FlowRouter.getParam('placeId'),
-			mapName: FlowRouter.getParam('mapName')
+			mapId: FlowRouter.getParam('mapId')
 		}));
 	},
 

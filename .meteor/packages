@@ -31,3 +31,4 @@ cfs:gridfs
 ejson
 check
 altapp:recaptcha
+random

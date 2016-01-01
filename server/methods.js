@@ -1,9 +1,13 @@
+function checkCurrentUser () {
+	var currentUser = Meteor.user();
+	if (!currentUser || currentUser.profile.type !== 'admin') {
+		throw new Meteor.Error("Unauthorized account", "Youraccount is not authorized!");			
+	}
+}
+
 Meteor.methods({
 	sendEmail: function (from, to, subject, html) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Youraccount is not authorized!");			
-		}
+		checkCurrentUser();
 
 		check([to, from, subject, html], [String]);
 		this.unblock();
@@ -19,10 +23,7 @@ Meteor.methods({
 	/* ********************* USER RELATED ********************* */
 
 	addUser: function (name, email, department, jobTitle, address, contact) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Youraccount is not authorized!");			
-		}
+		checkCurrentUser();
 
 		// Arguments type checking
 		check([name, email, department, jobTitle, address, contact], [String]);
@@ -45,10 +46,7 @@ Meteor.methods({
 	},
 
 	editUser: function (userId, name, department, jobTitle, address, contact) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+		checkCurrentUser();
 
 		// Arguments type checking
 		check([userId, name, department, jobTitle, address, contact], [String]);
@@ -67,10 +65,7 @@ Meteor.methods({
 	},
 
 	deleteUser: function (userId) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+		checkCurrentUser();
 
 		// Arguments type checking
 		check(userId, String);
@@ -82,10 +77,7 @@ Meteor.methods({
 	/* ********************* PLACE RELATED ********************* */
 
 	addPlace: function (name, address, description, imageId) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+		checkCurrentUser();
 
 		// Arguments type checking
 		check([name, address, description, imageId], [String]);
@@ -107,10 +99,7 @@ Meteor.methods({
 	},
 
 	editPlace: function (placeId, name, address, description, newImageId) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+		checkCurrentUser();
 
 		check([placeId, name, address, description], [String]);
 		check(newImageId, Match.OneOf(undefined, String));
@@ -150,10 +139,7 @@ Meteor.methods({
 	},
 
 	deletePlace: function (placeId, imageId) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+		checkCurrentUser();
 
 		// Arguments type checking
 		check([placeId, imageId], [String]);
@@ -172,10 +158,7 @@ Meteor.methods({
 	/* ********************* MAP / BLUEPRINT RELATED ********************* */
 
 	addMap: function (placeId, mapName, mapImageId) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+		checkCurrentUser();
 
 		// Arguments type checking
 		check([placeId, mapName, mapImageId], [String]);
@@ -183,9 +166,9 @@ Meteor.methods({
 		// TODO: May need to check for duplicate names
 
 		var map = {
+				mapId: Random.id(),
 				name: mapName,
-				mapImageId: mapImageId,
-				seats: []
+				mapImageId: mapImageId
 			};
 
 		// Array Push on Collection Update --> http://stackoverflow.com/questions/21907425/add-element-to-array-collections-update-in-meteor
@@ -199,20 +182,17 @@ Meteor.methods({
 	},
 
 	// oldMapName is needed to get the Map object to be modified --> without this, we cannot select which object to $set
-	editMap: function (placeId, oldMapName, newMapName, newMapImageId) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+	editMap: function (placeId, mapId, newMapName, newMapImageId) {
+		checkCurrentUser();
 
-		check([placeId, oldMapName, newMapName], [String]);
+		check([placeId, mapId, newMapName], [String]);
 		check(newMapImageId, Match.OneOf(undefined, String));
 
 		// Remove the old map image if newMapImageId exists
 		if (newMapImageId !== undefined && newMapImageId.length > 0) {
 			var oldMapImageId = Places.findOne({
 									'_id': placeId,
-									'maps.name': oldMapName
+									'maps.mapId': mapId
 								}).maps[0].mapImageId;
 
 			MapsImages.remove({
@@ -222,7 +202,7 @@ Meteor.methods({
 			// Update Places document
 			Places.update({
 				'_id': placeId,
-				'maps.name': oldMapName
+				'maps.mapId': mapId
 			}, {
 				$set: {
 					'maps.$.name': newMapName,
@@ -232,7 +212,7 @@ Meteor.methods({
 		} else if (newMapImageId === undefined) {
 			Places.update({
 				'_id': placeId,
-				'maps.name': oldMapName
+				'maps.mapId': mapId
 			}, {
 				$set: {
 					'maps.$.name': newMapName
@@ -241,14 +221,11 @@ Meteor.methods({
 		}
 	},
 
-	deleteMap: function (placeId, mapName, mapImageId) {
-		var currentUser = Meteor.user();
-		if (!currentUser || currentUser.profile.type !== 'admin') {
-			throw new Meteor.Error("Unauthorized account", "Your account is not authorized!");
-		}
+	deleteMap: function (placeId, mapId, mapImageId) {
+		checkCurrentUser();
 
 		// Arguments type checking
-		check([placeId, mapName, mapImageId], [String]);
+		check([placeId, mapId, mapImageId], [String]);
 
 		// $pull is a modifier for taking out an array's item by specifying the field to be checked (the map's name in this case)
 		// http://stackoverflow.com/questions/9048424/removing-specific-items-from-array-with-mongodb
@@ -257,7 +234,7 @@ Meteor.methods({
 		}, {
 			$pull: {
 				'maps': {
-					'name': mapName
+					'mapId': mapId
 				}
 			}
 		});
@@ -265,6 +242,55 @@ Meteor.methods({
 		// Remove the corresponding map's blueprint image
 		MapsImages.remove({
 			_id: mapImageId
+		});
+	},
+
+	addSeat: function (mapId, deviceId, latLng) {
+		checkCurrentUser();
+
+		// Arguments type checking
+		check([mapId, deviceId], [String]);
+		check(latLng, { lat: Number, lng: Number });
+
+		var deviceExistence = Seats.findOne({
+			deviceId: deviceId
+		});
+
+		if (deviceExistence) {
+			throw new Meteor.Error("Duplicate Device ID", "There is another device with the same device ID in the database!");
+		}
+
+		Seats.insert({
+			mapId: mapId,
+			deviceId: deviceId,
+			available: false,
+			latLng: latLng
+		});
+	},
+
+	editSeat: function (seatId, newDeviceId) {
+		checkCurrentUser();
+
+		// Arguments type checking
+		check([seatId, newDeviceId], [String]);
+
+		Seats.update({
+			_id: seatId
+		}, {
+			$set: {
+				deviceId: newDeviceId
+			}
+		});
+	},
+
+	deleteSeat: function (seatId) {
+		checkCurrentUser();
+
+		// Arguments type checking
+		check(seatId, String);
+
+		Seats.remove({
+			_id: seatId
 		});
 	}
 });

@@ -59,10 +59,6 @@ Meteor.publish('viewPlaceData', function (placeId) {
 	else {
 		var placeCursor = Places.find({
 						'_id': placeId
-					}, {
-						fields: {
-							'maps.seats': 0
-						}
 					});
 		
 		// It seems that the place and placeCursor definition must be separated (?) --> otherwise, place is undefined
@@ -105,7 +101,7 @@ Meteor.publish('mapImageData', function (mapImageId) {
 	}
 });
 
-Meteor.publish('mapData', function (placeId, mapName) {
+Meteor.publish('mapData', function (placeId, mapId) {
 	if (!this.userId) return this.ready();
 	else {
 		var placeDataCursor = Places.find({
@@ -115,7 +111,7 @@ Meteor.publish('mapData', function (placeId, mapName) {
 									_id: 1,
 									maps: {
 										$elemMatch: {
-											name: mapName // This filters out which map data is shown to the user
+											mapId: mapId // This filters out which map data is shown to the user
 										}
 									}
 								}
@@ -127,11 +123,15 @@ Meteor.publish('mapData', function (placeId, mapName) {
 								_id: mapImageId
  							 });
 
-		return [placeDataCursor, mapImageCursor];
+		var seatsCursor = Seats.find({
+			mapId: mapId
+		});
+
+		return [placeDataCursor, mapImageCursor, seatsCursor];
 	}
 });
 
-Meteor.publish('editMapData', function (placeId, mapName) {
+Meteor.publish('editMapData', function (placeId, mapId) {
 	if (!this.userId) return this.ready();
 	else {
 		var placeDataCursor = Places.find({
@@ -141,11 +141,9 @@ Meteor.publish('editMapData', function (placeId, mapName) {
 				_id: 1,
 				maps: {
 					$elemMatch: {
-						name: mapName
+						mapId: mapId
 					}
-				},
-				// 'maps.name': 1,
-				// 'maps.mapImageId': 1
+				}
 			}
 		});
 

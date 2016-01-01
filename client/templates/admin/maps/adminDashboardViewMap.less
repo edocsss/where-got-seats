@@ -12,6 +12,7 @@
 
 .map-viewer-header-row {
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .view-map-buttons-row {
@@ -30,8 +31,42 @@
 	width: 100%;
 }
 
+.add-seat-title-row {
+	margin-bottom: 15px;
+}
+
+.add-seat-button-rows {
+	margin-top: 20px;
+}
+
+#add-seat-form button {
+	width: 100%;
+}
+
+.edit-seat-button-rows {
+	margin-top: 20px;
+}
+
+#edit-seat-form button {
+	width: 100%;
+}
+
+#edit-seat-save-button {
+	margin-bottom: 10px;
+}
+
+/* The leaflet container's background is modified in 'leaflet.css' --> .leaflet-container */
+#map-viewer {
+	height: 500px;
+	margin-bottom: 30px;
+}
+
 @media all and (max-width: 767px) {
 	.view-map-back-button-row {
 		margin-top: 15px;
+	}
+
+	#map-viewer {
+		height: 300px;
 	}
 }

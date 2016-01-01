@@ -130,7 +130,7 @@ FlowRouter.route('/dashboard/edit/user/:userId', {
 
 /* ************************************************************************************************ */
 
-FlowRouter.route('/dashboard/view/map/:placeId/:mapName', {
+FlowRouter.route('/dashboard/view/map/:placeId/:mapId', {
 	name: 'adminDashboardViewMap',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -139,11 +139,11 @@ FlowRouter.route('/dashboard/view/map/:placeId/:mapName', {
 		});
 	},
 	subscriptions: function (params) {
-		this.register('mapData', Meteor.subscribe('mapData', params.placeId, params.mapName));
+		this.register('mapData', Meteor.subscribe('mapData', params.placeId, params.mapId));
 	}
 });
 
-FlowRouter.route('/dashboard/edit/map/:placeId/:mapName', {
+FlowRouter.route('/dashboard/edit/map/:placeId/:mapId', {
 	name: 'adminDashboardEditMap',
 	action: function () {
 		BlazeLayout.render('mainBody', {
@@ -152,7 +152,7 @@ FlowRouter.route('/dashboard/edit/map/:placeId/:mapName', {
 		});
 	},
 	subscriptions: function (params) {
-		this.register('editMapData', Meteor.subscribe('editMapData', params.placeId, params.mapName));
+		this.register('editMapData', Meteor.subscribe('editMapData', params.placeId, params.mapId));
 	}
 });
 

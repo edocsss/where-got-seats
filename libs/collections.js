@@ -15,12 +15,24 @@ if (Meteor.isServer) {
 *	- Picture --> One picture of the building (for the main user interface --> places list) --> an Image URL
 *	- Maps --> an array of object
 			{
+				mapId: generated using "random" package --> Random.id()
 				name: the map's name
 				mapImageId: for joining with the MapsImages
-				seats: an array of seat objects
 			}
 **/
 Places = new Mongo.Collection('places');
+
+/**
+*	One seat is RELATED to ONE MAP of ONE PLACE --> it is like a ONE to MANY between Maps (inside Places) with Seats
+*	Format:
+*	- placeId		Primary Key
+*	- mapId			Primary Key
+*	- deviceId		From hardware
+*	- available 	From hardware sensor
+*	- latLng		From adding on the leaflet
+*
+**/
+Seats = new Mongo.Collection('seats');
 
 // Stores ONLY PLACES pictures --> https://medium.com/@victorleungtw/how-to-upload-files-with-meteor-js-7b8e811510fa#.mvbjhdotr
 // placesImageStore --> file system adapter
@@ -59,6 +71,34 @@ Places.deny({
 });
 
 Places.allow({
+	insert: function () {
+		return false;
+	},
+
+	update: function () {
+		return false;
+	},
+
+	remove: function () {
+		return false;
+	}
+});
+
+Seats.deny({
+	insert: function () {
+		return true;
+	},
+
+	update: function () {
+		return true;
+	},
+
+	remove: function () {
+		return true;
+	}
+});
+
+Seats.allow({
 	insert: function () {
 		return false;
 	},

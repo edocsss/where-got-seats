@@ -182,7 +182,9 @@
 /* visual tweaks */
 
 .leaflet-container {
-	background: #ddd;
+	/*background: #ddd;*/
+	background-color: #FFFFFF;
+	border: 1px solid #DDDDDD;
 	outline: 0;
 	}
 .leaflet-container a {

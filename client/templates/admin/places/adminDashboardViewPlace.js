@@ -202,7 +202,7 @@ Template.mapListItem.events({
 	'click .map-list-item-container': function () {
 		FlowRouter.go(FlowRouter.path('adminDashboardViewMap', {
 			placeId: FlowRouter.getParam('placeId'),
-			mapName: this.name
+			mapId: this.mapId
 		}));
 	}
 });
