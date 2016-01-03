@@ -263,7 +263,7 @@ Meteor.methods({
 		Seats.insert({
 			mapId: mapId,
 			deviceId: deviceId,
-			available: false,
+			available: true,
 			latLng: latLng
 		});
 	},

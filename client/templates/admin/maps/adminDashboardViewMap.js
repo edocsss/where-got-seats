@@ -131,8 +131,8 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 		added: function (newSeat) {
 			var seatOutlineColor, seatFillColor, newSeatCircle;
 			if (newSeat.available) {
-				seatOutlineColor = 'red';
-				seatFillColor = '#F03';
+				seatOutlineColor = 'green';
+				seatFillColor = 'green';
 			} else {
 				seatOutlineColor = 'red';
 				seatFillColor = '#F03';
@@ -144,7 +144,7 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 					color: seatOutlineColor,
 					fillColor: seatFillColor,
 					fillOpacity: 1,
-					radius: 10
+					radius: 8
 				});
 
 				// Adding the newSeatCircle marker to the blueprint
@@ -153,7 +153,7 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 				newSeatCircle.bindPopup(L.popup({
 					minWidth: 150,
 					keepInView: true,
-					autoPanPaddingTopLeft: L.point(10, 10) // Make sure that there is some space between the top container and the popup
+					autoPanPaddingTopLeft: L.point(50, 50) // Make sure that there is some space between the top container and the popup
 				}).setContent(Blaze.toHTMLWithData(Template.adminDashboardEditSeatForm, {
 					deviceId: newSeat.deviceId,
 					seatId: newSeat._id
@@ -257,7 +257,7 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 			circleMarker.bindPopup(L.popup({
 				minWidth: 150,
 				keepInView: true,
-				autoPanPaddingTopLeft: L.point(10, 10) // Make sure that there is some space between the top container and the popup
+				autoPanPaddingTopLeft: L.point(50, 50) // Make sure that there is some space between the top container and the popup
 			}).setContent(Blaze.toHTMLWithData(Template.adminDashboardEditSeatForm, {
 				deviceId: newSeat.deviceId,
 				seatId: newSeat._id
@@ -265,11 +265,11 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 
 			var seatOutlineColor, seatFillColor;
 			if (newSeat.available) {
-				seatOutlineColor = 'red';
-				seatFillColor = '#F03';
+				seatOutlineColor = 'green';
+				seatFillColor = 'green';
 			} else {
 				seatOutlineColor = 'red';
-				seatFillColor = '#000';
+				seatFillColor = '#F03';
 			}
 
 			circleMarker.setStyle({
