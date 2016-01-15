@@ -1,4 +1,6 @@
-var subsManager = new SubsManager();
+// var subsManager = new SubsManager();
+
+/* ************************************************************************************************ */
 
 FlowRouter.route('/', {
 	name: 'home',
@@ -36,7 +38,27 @@ FlowRouter.route('/login', {
 	}
 });
 
-FlowRouter.route('/dashboard', {
+/* ************************************************************************************************ */
+
+function checkLoginStatus (context, redirect) {
+	if (!Meteor.loggingIn() && !Meteor.userId()) {
+		swal({
+			title: "User Not Authorized!",
+			text: "Please login as an admin to access the page!",
+			type: "error"
+		});
+		
+		FlowRouter.go('adminLogin');
+	}
+}
+
+var adminRoutes = FlowRouter.group({
+	prefix: '/dashboard',
+	name: 'dashboard',
+	triggersEnter: [checkLoginStatus]
+});
+
+adminRoutes.route('/', {
 	name: 'adminDashboardHome',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -46,9 +68,7 @@ FlowRouter.route('/dashboard', {
 	}
 });
 
-/* ************************************************************************************************ */
-
-FlowRouter.route('/dashboard/places', {
+adminRoutes.route('/places', {
 	name: 'adminDashboardPlaces',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -61,7 +81,37 @@ FlowRouter.route('/dashboard/places', {
 	}
 });
 
-FlowRouter.route('/dashboard/view/place/:placeId', {
+adminRoutes.route('/users', {
+	name: 'adminDashboardUsers',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'adminDashboardLayout',
+			adminDashboardContentPlaceholder: 'adminDashboardUsers'
+		});
+	},
+	subscriptions: function (params) {
+		this.register('userList', Meteor.subscribe('userList'));
+	}
+});
+
+adminRoutes.route('/about/edit', {
+	name: 'editAbout',
+	action: function (params) {
+		BlazeLayout.render('mainBody', {
+			main: 'adminDashboardLayout',
+			adminDashboardContentPlaceholder: 'adminDashboardAbout'
+		});
+	}
+});
+
+/* ************************************************************************************************ */
+
+var placeRoutes = adminRoutes.group({
+	prefix: '/place',
+	name: 'place'
+});
+
+placeRoutes.route('/view/:placeId', {
 	name: 'adminDashboardViewPlace',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -74,7 +124,7 @@ FlowRouter.route('/dashboard/view/place/:placeId', {
 	}
 });
 
-FlowRouter.route('/dashboard/edit/place/:placeId', {
+placeRoutes.route('/edit/:placeId', {
 	name: 'adminDashboardEditPlace',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -89,20 +139,12 @@ FlowRouter.route('/dashboard/edit/place/:placeId', {
 
 /* ************************************************************************************************ */
 
-FlowRouter.route('/dashboard/users', {
-	name: 'adminDashboardUsers',
-	action: function (params) {
-		BlazeLayout.render('mainBody', {
-			main: 'adminDashboardLayout',
-			adminDashboardContentPlaceholder: 'adminDashboardUsers'
-		});
-	},
-	subscriptions: function (params) {
-		this.register('userList', Meteor.subscribe('userList'));
-	}
+var userRoutes = adminRoutes.group({
+	prefix: '/user',
+	name: 'user'
 });
 
-FlowRouter.route('/dashboard/view/user/:userId', {
+userRoutes.route('/view/:userId', {
 	name: 'adminDashboardViewUser',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -115,7 +157,7 @@ FlowRouter.route('/dashboard/view/user/:userId', {
 	}
 });
 
-FlowRouter.route('/dashboard/edit/user/:userId', {
+userRoutes.route('/edit/:userId', {
 	name: 'adminDashboardEditUser',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -130,7 +172,12 @@ FlowRouter.route('/dashboard/edit/user/:userId', {
 
 /* ************************************************************************************************ */
 
-FlowRouter.route('/dashboard/view/map/:placeId/:mapId', {
+var mapRoutes = adminRoutes.group({
+	prefix: '/map',
+	name: 'map'
+});
+
+mapRoutes.route('/view/:placeId/:mapId', {
 	name: 'adminDashboardViewMap',
 	action: function (params) {
 		BlazeLayout.render('mainBody', {
@@ -143,7 +190,7 @@ FlowRouter.route('/dashboard/view/map/:placeId/:mapId', {
 	}
 });
 
-FlowRouter.route('/dashboard/edit/map/:placeId/:mapId', {
+mapRoutes.route('/edit/:placeId/:mapId', {
 	name: 'adminDashboardEditMap',
 	action: function () {
 		BlazeLayout.render('mainBody', {
@@ -157,13 +204,3 @@ FlowRouter.route('/dashboard/edit/map/:placeId/:mapId', {
 });
 
 /* ************************************************************************************************ */
-
-FlowRouter.route('/dashboard/edit/about', {
-	name: 'editAbout',
-	action: function (params) {
-		BlazeLayout.render('mainBody', {
-			main: 'adminDashboardLayout',
-			adminDashboardContentPlaceholder: 'adminDashboardAbout'
-		});
-	}
-});

@@ -116,7 +116,7 @@ Meteor.publish('mapData', function (placeId, mapId) {
 									}
 								}
 							});
-
+		
 		var place = placeDataCursor.fetch()[0];
 		var mapImageId = place.maps[0].mapImageId;
 		var mapImageCursor = MapsImages.find({

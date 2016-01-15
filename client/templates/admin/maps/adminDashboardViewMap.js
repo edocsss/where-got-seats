@@ -81,9 +81,10 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 	var self = this;
 	self.blueprint = L.map('map-viewer', {
 		minZoom: 1,
-		maxZoom: 3,
+		maxZoom: 4,
 		center: [0, 0],
 		zoom: 1,
+		touchZoom: false,
 		crs: L.CRS.Simple
 	});
 
@@ -144,7 +145,7 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 					color: seatOutlineColor,
 					fillColor: seatFillColor,
 					fillOpacity: 1,
-					radius: 8
+					radius: 4
 				});
 
 				// Adding the newSeatCircle marker to the blueprint
@@ -162,6 +163,8 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 				// Remove / close any marker on the map when the circle is opened
 				newSeatCircle.on('click', function () {
 					// Add the seat validator IF AND ONLY IF THE EDIT NEW SEAT FORM HAS BEEN ADDED TO THE POPUP CONTENT AREA!
+					// Once this validator is added, it needs not be called again (or created) in contrast to the addNewSeatValidator below
+					// It is because whenever the popup is opened (by clicking), the editSeatValidator is automatically created again by this listener
 					var editSeatValidator = self.$('#edit-seat-form').validate({
 						submitHandler: function (form, event) {
 							event.preventDefault();
@@ -239,6 +242,7 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 						});
 					});
 
+					// Close any opened marker, if there is one
 					if (!self.possibleNewSeat) {
 						return;
 					} else {
@@ -303,65 +307,8 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 			self.possibleNewSeat.bindPopup(L.popup({
 				minWidth: 150,
 				keepInView: true,
-				autoPanPaddingTopLeft: L.point(10, 10) // Make sure that there is some space between the top container and the popup
+				autoPanPaddingTopLeft: L.point(50, 50) // Make sure that there is some space between the top container and the popup
 			}).setContent(Blaze.toHTML(Template.adminDashboardAddNewSeatForm))).openPopup();
-
-			// Add the seat validator IF AND ONLY IF THE ADD NEW SEAT FORM HAS BEEN ADDED TO THE POPUP CONTENT AREA!
-			var addSeatValidator = self.$('#add-seat-form').validate({
-				submitHandler: function (form, event) {
-					event.preventDefault();
-
-					var deviceId = self.$('#add-seat-device-id').val();
-					Meteor.call('addSeat', FlowRouter.getParam('mapId'), deviceId, self.possibleNewSeat.getLatLng(), function (error, result) {
-						if (error) {
-							swal({
-								title: "Add New Seat",
-								text: error.reason,
-								type: "error"
-							});
-						} else {
-							self.blueprint.removeLayer(self.possibleNewSeat);
-							self.possibleNewSeat = null;
-							swal({
-								title: "Add New Seat",
-								text: "You have successfully added a new seat!",
-								type: "success"
-							});
-						}
-					});
-				},
-				rules: {
-					'device-id': {
-						required: true,
-						minlength: 3,
-						maxlength: 10
-					}
-				},
-				messages: {
-					name: {
-						required: "You must provide the hardware's device ID!",
-						minlength: "The hardware's device ID must be between 3 to 50 characters!",
-						maxlength: "The hardware's device ID must be between 3 to 50 characters!"
-					}
-				},
-				highlight: function (element) {
-					self.$(element).closest('.form-group').addClass('has-error');
-					self.$(element).closest('.form-group').removeClass('has-success');
-				},
-				unhighlight: function (element) {
-					self.$(element).closest('.form-group').addClass('has-success');
-					self.$(element).closest('.form-group').removeClass('has-error');
-				},
-				errorElement: 'span',
-				errorClass: 'help-block',
-				errorPlacement: function (error, element) {
-					if (element.parent('.input-group').length) {
-						error.insertAfter(element.parent());
-					} else {
-						error.insertAfter(element);
-					}
-				}
-			});
 
 			// Also open the pop up on dragend
 			// Register event only on the first time the marker is created!
@@ -372,5 +319,70 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 			// If there is already a marker defined, only need to re-position the marker and open the same popup
 			self.possibleNewSeat.setLatLng(e.latlng).openPopup();
 		}
+
+		// Add the seat validator IF AND ONLY IF THE ADD NEW SEAT FORM HAS BEEN ADDED TO THE POPUP CONTENT AREA!
+		// We cannot put the validator only in the first IF position --> when it is closed and opened, there will be submission problem
+		// The problem is because once the marker is moved to a new location or closed, the form is destroyed BUT the validator created before refers to THAT PARTICULAR FORM (although using the same ID)
+		// Thus, need to re-create a validator every time
+		var addSeatValidator = self.$('#add-seat-form').validate({
+			submitHandler: function (form, event) {
+				event.preventDefault();
+
+				var deviceId = self.$('#add-seat-device-id').val();
+				Meteor.call('addSeat', FlowRouter.getParam('mapId'), deviceId, self.possibleNewSeat.getLatLng(), function (error, result) {
+					if (error) {
+						swal({
+							title: "Add New Seat",
+							text: error.reason,
+							type: "error"
+						});
+					} else {
+						self.blueprint.removeLayer(self.possibleNewSeat);
+						self.possibleNewSeat = null;
+						swal({
+							title: "Add New Seat",
+							text: "You have successfully added a new seat!",
+							type: "success"
+						});
+					}
+				});
+			},
+			rules: {
+				'device-id': {
+					required: true,
+					minlength: 3,
+					maxlength: 10
+				}
+			},
+			messages: {
+				name: {
+					required: "You must provide the hardware's device ID!",
+					minlength: "The hardware's device ID must be between 3 to 50 characters!",
+					maxlength: "The hardware's device ID must be between 3 to 50 characters!"
+				}
+			},
+			highlight: function (element) {
+				self.$(element).closest('.form-group').addClass('has-error');
+				self.$(element).closest('.form-group').removeClass('has-success');
+			},
+			unhighlight: function (element) {
+				self.$(element).closest('.form-group').addClass('has-success');
+				self.$(element).closest('.form-group').removeClass('has-error');
+			},
+			errorElement: 'span',
+			errorClass: 'help-block',
+			errorPlacement: function (error, element) {
+				if (element.parent('.input-group').length) {
+					error.insertAfter(element.parent());
+				} else {
+					error.insertAfter(element);
+				}
+			}
+		});
+		
+		// Replacing the CROSS symbol on the popup
+		self.$('#add-seat-close-button').click(function () {
+			self.possibleNewSeat.closePopup();
+		});
 	});
 });

@@ -3409,14 +3409,15 @@ L.Icon.Default = L.Icon.extend({
 			name += '-2x';
 		}
 
-		var path = L.Icon.Default.imagePath;
-
+		// var path = L.Icon.Default.imagePath;
+		var path = L.Icon.Default.imagePath || Meteor.absoluteUrl();
 		if (!path) {
 			throw new Error('Couldn\'t autodetect L.Icon.Default.imagePath, set it manually.');
 		}
 
 		// Use "return path + 'images/marker-' + name + '.png'" to revert back
-		return '../../../../leaflet-images/marker-' + name + '.png';
+		// return path + 'leaflet-images/marker-' + name + '.png';
+		return '/leaflet-images/marker-' + name + '.png';
 	}
 });
 

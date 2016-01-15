@@ -38,7 +38,7 @@ Meteor.methods({
 				department: department,
 				jobTitle: jobTitle,
 				type: 'admin',
-				createdBy: currentUser.emails[0].address
+				createdBy: Meteor.user().emails[0].address
 			}
 		});
 
@@ -209,6 +209,11 @@ Meteor.methods({
 					'maps.$.mapImageId': newMapImageId
 				}
 			});
+
+			// Remove all seats
+			Seats.remove({
+				mapId: mapId
+			});
 		} else if (newMapImageId === undefined) {
 			Places.update({
 				'_id': placeId,
@@ -244,6 +249,8 @@ Meteor.methods({
 			_id: mapImageId
 		});
 	},
+
+	/* ********************* SEAT RELATED ********************* */
 
 	addSeat: function (mapId, deviceId, latLng) {
 		checkCurrentUser();
@@ -291,6 +298,24 @@ Meteor.methods({
 
 		Seats.remove({
 			_id: seatId
+		});
+	},
+
+	/* ********************* HARDWARE RELATED ********************* */
+
+	updateSeatAvailability: function (hardwareId, availability) {
+		checkCurrentUser();
+
+		// Arguments type checking
+		check(hardwareId, String);
+		check(availability, Boolean);
+
+		Seats.update({
+			deviceId: hardwareId
+		}, {
+			$set: {
+				available: availability
+			}
 		});
 	}
 });

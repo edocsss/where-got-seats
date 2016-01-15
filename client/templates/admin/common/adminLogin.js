@@ -32,9 +32,9 @@ Template.adminLogin.onRendered(function () {
 						title: 'Admin Login', 
 						text: 'Successful Login!', 
 						type: 'success'
-					}, function () {
-						FlowRouter.go(FlowRouter.path('adminDashboardHome'));
 					});
+
+					FlowRouter.go(FlowRouter.path('adminDashboardHome'));
 				}
 			});
 		},

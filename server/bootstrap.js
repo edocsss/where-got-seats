@@ -43,4 +43,42 @@ Meteor.startup(function () {
 
 		return html;
 	};
+
+	// Setting up Restivus package
+	var restivusAPI = new Restivus({
+		useDefaultAuth: true,
+		prettyJSON: true
+	});
+
+	// Add route for the hardware to update its availability
+	restivusAPI.addRoute('hardware/update/seat', {
+		authRequired: false
+	}, {
+		put: {
+			action: function () {
+				var hardwareId = this.bodyParams.hardwareId;
+				var seatAvailability = this.bodyParams.availability; // 1 = available, 0 = not available
+
+				Meteor.call('updateSeatAvailability', hardwareId, seatAvailability, function (error, result) {
+					if (error) {
+						console.log('Updating seat availability failed!');
+						console.log('Hardware ID: ' + hardwareId);
+						console.log('Seat Availabilty: ' + seatAvailability);
+						console.log('Reason: ' + error.reason);
+
+						return {
+							statusCode: 500,
+							body: false
+						};
+
+					} else {
+						return {
+							statusCode: 200,
+							body: true
+						};
+					}
+				});
+			}
+		}
+	});
 });

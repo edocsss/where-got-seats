@@ -22,7 +22,6 @@ accounts-password
 email
 less
 accounts-base
-meteorhacks:subs-manager
 kadira:flow-router
 kadira:blaze-layout
 meteorhacks:fast-render
@@ -30,5 +29,5 @@ cfs:standard-packages
 cfs:gridfs
 ejson
 check
-altapp:recaptcha
 random
+nimble:restivus@0.8.4
