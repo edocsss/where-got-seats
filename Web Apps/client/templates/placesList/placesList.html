@@ -1,0 +1,52 @@
+<template name="placesList">
+	<div class="row place-search-row">
+		<div class="col-xs-12">
+			<h1 class="text-center main-header">
+				<b>FYP</b>
+			</h1>
+		</div>
+
+		<div class="col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8">
+			<div class="form-group has-feedback">
+				<input type="text" class="form-control" id="place-search-bar" placeholder="Find a Place...">
+				<i class="form-control-feedback glyphicon glyphicon-search"></i>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" id="shuffle-container">
+		{{ #if isSubscriptionReady 'userPlaceList' }}
+			
+			{{ #unless isEmptyPlaceList }}
+				{{# each getPlaceList }}
+
+					{{> userPlaceListItem }}
+
+				{{ /each }}
+
+			{{ else }}
+
+				<div class="col-xs-12 no-data-available">
+					<h4 class="text-center">
+						<b><i>There is no place data registered in our database!</i></b>
+					</h4>
+				</div>
+
+			{{ /unless }}
+
+		{{ else }}
+
+			{{> loadingSubscription }}
+
+		{{ /if }}
+	</div>
+	
+	<!-- CALL HERE IN ORDER TO WAIT FOR THE SHUFFLE-CONTAINER TO BE FULLY RENDERED -->
+	<!-- {{ setupShuffleJs }} -->
+</template>
+
+<template name="userPlaceListItem">
+	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 place-item" data-name="{{ this.name }}">
+		<h4 class="text-center">{{ this.name }}</h4>
+	</div>
+</template>
