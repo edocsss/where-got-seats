@@ -186,7 +186,7 @@ Meteor.methods({
 		// TODO: May need to check for duplicate names
 
 		var map = {
-				mapId: Random.id(),
+				mapId: Random.id(), // Need make a random ID for the map since map does not have its own collection!
 				name: mapName,
 				mapImageId: mapImageId
 			};

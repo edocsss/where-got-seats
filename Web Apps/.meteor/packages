@@ -30,3 +30,4 @@ cfs:gridfs
 ejson
 check
 nimble:restivus@0.8.4
+random

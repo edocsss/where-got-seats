@@ -80,7 +80,7 @@ Template.adminDashboardViewMap.events({
 Template.adminDashboardViewMapLeaflet.onRendered(function () {
 	var self = this;
 	self.blueprint = L.map('map-viewer', {
-		minZoom: 1,
+		minZoom: 2,
 		maxZoom: 4,
 		center: [0, 0],
 		zoom: 1,
