@@ -313,6 +313,8 @@ Meteor.methods({
 	deleteSeat: function (seatId) {
 		checkCurrentUserAdmin();
 
+		console.log(seatId);
+
 		// Arguments type checking
 		check(seatId, String);
 

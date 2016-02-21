@@ -1,13 +1,13 @@
 #define VELOSTAT_PIN A0
-#define HARDWARE_ID "12345678"
+#define HARDWARE_ID "99999999"
 #define SEAT_AVAILABLE true
 #define SEAT_NOT_AVAILABLE false
 #define SEAT_UPDATE_SUCCESSFUL_CODE 1
 #define SEAT_UPDATE_UNSUCCESSFUL_CODE 0
 #define SAMPLE_COUNT 50
-#define PRESSURE_THRESHOLD 370 // Beyond this threshold, we can assume there is NOBODY using the table
-#define SUCCESSFUL_UPDATE_INTERLOOP_DELAY 500
-#define UNSUCCESSFUL_UPDATE_INTERLOOP_DELAY 200
+#define PRESSURE_THRESHOLD 200 // Beyond this threshold, we can assume there is NOBODY using the table
+#define SUCCESSFUL_UPDATE_INTERLOOP_DELAY 200
+#define UNSUCCESSFUL_UPDATE_INTERLOOP_DELAY 100
 
 int prev = -1, cur, pressureReading, seatUpdateStatus = -1;
 void setup() {
@@ -26,6 +26,8 @@ void loop() {
   if (cur != prev) {
     // Tell which hardware this is
     Serial.println(HARDWARE_ID);
+    
+    Serial.println(pressureReading);
 
     // Tell the current seat availability
     Serial.println(cur);

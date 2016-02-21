@@ -97,7 +97,7 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 		}),
 
 		mapImageURL = mapImage.url();
-		
+
 	// This trick is for calculating the blueprint's width and height
 	var blueprintImage = new Image();
 	blueprintImage.src = mapImageURL;
@@ -380,10 +380,15 @@ Template.adminDashboardViewMapLeaflet.onRendered(function () {
 				}
 			}
 		});
-		
-		// Replacing the CROSS symbol on the popup
-		self.$('#add-seat-close-button').click(function () {
-			self.possibleNewSeat.closePopup();
-		});
 	});
+});
+
+
+Template.adminDashboardViewMapLeaflet.events({
+	'click #add-seat-close-button': function () {
+		var t = Template.instance();
+		t.possibleNewSeat.closePopup();
+		t.blueprint.removeLayer(t.possibleNewSeat);
+		t.possibleNewSeat = null;
+	}
 });

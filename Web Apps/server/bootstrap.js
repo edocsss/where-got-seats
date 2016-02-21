@@ -1,4 +1,11 @@
 Meteor.startup(function () {
+	// Seats.update({}, {
+	// 		$set: {
+	// 			available: false
+	// 		}
+	// 	}, {
+	// 		multi: true
+	// 	});
 	if (Meteor.users.find().count() === 0) {
 		Accounts.createUser({
 			email: 'admin@ntu.edu.sg',
@@ -53,24 +60,26 @@ Meteor.startup(function () {
 	// Add route for the hardware to update its availability
 	// DEFAULT URL: http://[base url here]/api/[REST End Point Route]
 	restivusAPI.addRoute('hardware/update/seat', {
-		authRequired: true
+		authRequired: false
 	}, {
 		put: {
 			action: function () {
 				var updateResult = false;
-				if (this.user.profile.type === 'hardware_updater') {
+				// if (this.user && this.user.profile.type === 'hardware_updater') {
 					// Need to PARSE the bodyParams since the data was received in the form of a JSON string --> 'false' and 'true' are considered String
 					// The hardwareId MUST BE in the form of String --> for query selector deviceid
 					var hardwareId = this.bodyParams.hardwareId;
-					var seatAvailability = JSON.parse(this.bodyParams.availability);
+					var availability = JSON.parse(this.bodyParams.availability);
+
+					console.log(hardwareId, availability);
 
 					// JSON.parse() convert the seatAvailability String to Boolean --> the request data is in the form of String
 					// This is simply a HACK!!
-					Meteor.call('updateSeatAvailability', hardwareId, seatAvailability, function (error, result) {
+					Meteor.call('updateSeatAvailability', hardwareId, availability, function (error, result) {
 						if (error) {
 							console.log('Updating seat availability failed!');
 							console.log('Hardware ID: ' + hardwareId);
-							console.log('Seat Availabilty: ' + seatAvailability);
+							console.log('Seat Availabilty: ' + availability);
 							console.log('Reason: ' + (error.reason || error.sanitizedError.reason) );
 
 							updateResult = false;
@@ -78,7 +87,7 @@ Meteor.startup(function () {
 							updateResult = true;
 						}
 					});
-				}
+				// }
 
 				// Return the correct message based on the update result
 				// There is a problem with RESTIVUS that it does NOT read the statusCode property
@@ -88,6 +97,7 @@ Meteor.startup(function () {
 				// if (responseData.body && (responseData.statusCode || responseData.headers)) --> Route.prototype.addToApi
 				// So, in this case, responseData.body === false, and this IF part is skipped
 				// So, the result CANNOT be put in the RESPONSE BODY DIRECTLY, MUST BE IN THE FORM OF ANOTHER OBJECT
+				console.log(updateResult);
 				if (updateResult) {
 					return {
 						statusCode: 200,

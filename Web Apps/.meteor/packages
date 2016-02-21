@@ -31,3 +31,5 @@ ejson
 check
 nimble:restivus@0.8.4
 random
+msavin:mongoinspector
+meteorhacks:search-source

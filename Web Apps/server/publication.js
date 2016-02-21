@@ -43,26 +43,23 @@ Meteor.publish('userData', function (userId) {
 });
 
 Meteor.publish('userPlaceList', function () {
-	if (!this.userId) return this.ready();
-	else {
-		var places = Places.find({}, {
-			fields: {
-				'maps': 0
-			}
-		});
+	var places = Places.find({}, {
+		fields: {
+			'maps': 0
+		}
+	});
 
-		var placeImageIds = places.map(function (place) {
-			return place.placeImageId;
-		});
+	var placeImageIds = places.map(function (place) {
+		return place.placeImageId;
+	});
 
-		var placeImages = PlacesImages.find({
-			_id: {
-				$in: placeImageIds
-			}
-		});
+	var placeImages = PlacesImages.find({
+		_id: {
+			$in: placeImageIds
+		}
+	});
 
-		return [places, placeImages];
-	}
+	return [places, placeImages];
 });
 
 Meteor.publish('adminPlaceList', function () {

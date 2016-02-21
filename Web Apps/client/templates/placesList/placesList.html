@@ -1,38 +1,47 @@
 <template name="placesList">
 	<div class="row place-search-row">
-		<div class="col-xs-12">
-			<h1 class="text-center main-header">
-				<b>FYP</b>
-			</h1>
+		<div class="col-xs-12 brand-logo-row">
+			<img src="img/logo/brand_logo.png" class="brand-logo center-block">
 		</div>
 
-		<div class="col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8">
+		<div class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10">
 			<div class="form-group has-feedback">
-				<input type="text" class="form-control" id="place-search-bar" placeholder="Find a Place...">
+				<input type="text" class="form-control" id="place-search-bar" placeholder="Search for a Place...">
 				<i class="form-control-feedback glyphicon glyphicon-search"></i>
 			</div>
+		</div>
+
+		<div class="col-sm-1 col-xs-1 search-loading-container {{ isPlaceListLoading }}">
+			<img src="img/util/loading.gif">
 		</div>
 	</div>
 	
 	<div class="row" id="shuffle-container">
 		{{ #if isSubscriptionReady 'userPlaceList' }}
 			
-			{{ #unless isEmptyPlaceList }}
-				{{# each getPlaceList }}
+			{{# each getPlaceList }}
 
-					{{> userPlaceListItem }}
+				{{> userPlaceListItem }}
 
-				{{ /each }}
-
-			{{ else }}
-
-				<div class="col-xs-12 no-data-available">
+			{{ /each }}
+			
+			{{ #if isEmptyPlaceList }}
+			
+				<div class="col-xs-12">
 					<h4 class="text-center">
-						<b><i>There is no place data registered in our database!</i></b>
+						<i>
+						
+						{{ #if isEmptySearchPlaceList }}
+							There is no place data with such name registered in our database!
+						{{ else }}
+							There is no place data registered in our database!
+						{{ /if }}
+
+						</i>
 					</h4>
 				</div>
 
-			{{ /unless }}
+			{{ /if }}
 
 		{{ else }}
 
@@ -40,13 +49,10 @@
 
 		{{ /if }}
 	</div>
-	
-	<!-- CALL HERE IN ORDER TO WAIT FOR THE SHUFFLE-CONTAINER TO BE FULLY RENDERED -->
-	<!-- {{ setupShuffleJs }} -->
 </template>
 
 <template name="userPlaceListItem">
-	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 place-item" data-name="{{ this.name }}">
-		<h4 class="text-center">{{ this.name }}</h4>
+	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+		<h4 class="text-center">{{{ name }}}</h4>
 	</div>
 </template>

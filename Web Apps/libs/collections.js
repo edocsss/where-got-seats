@@ -22,6 +22,7 @@ if (Meteor.isServer) {
 **/
 Places = new Mongo.Collection('places');
 
+
 /**
 *	One seat is RELATED to ONE MAP of ONE PLACE --> it is like a ONE to MANY between Maps (inside Places) with Seats
 *	Format:

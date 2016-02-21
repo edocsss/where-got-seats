@@ -24,6 +24,12 @@ if __name__ == '__main__':
         print("Waiting for hardware ID...")
         hardware_id = serial_controller.read_string()
 
+        print("READING")
+        reading = serial_controller.read_int()
+        print(reading)
+        print()
+        print()
+
         print("Waiting for seat availability status...")
         seat_availability = serial_controller.read_bool()
 
